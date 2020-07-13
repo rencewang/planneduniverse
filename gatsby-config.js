@@ -7,16 +7,16 @@ const postCSSMixins = require('postcss-mixins')
 
 module.exports = {
   siteMetadata: {
-    title: `Hello Friend`,
+    title: `Planned Universe`,
     description: `A simple starter for Gatsby. That's it.`,
     copyrights: '',
-    author: `@panr`,
+    author: `@planneduniverse`,
     logo: {
       src: '',
       alt: '',
     },
-    logoText: 'hello friend',
-    defaultTheme: 'dark',
+    logoText: 'Planned Universe',
+    defaultTheme: 'light',
     postsPerPage: 5,
     showMenuItems: 2,
     menuMoreText: 'Show more',
@@ -114,8 +114,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-hello-friend`,
-        short_name: `hello-friend`,
+        name: `Planned Universe`,
+        short_name: `planned-universe`,
         start_url: `/`,
         background_color: `#292a2d`,
         theme_color: `#292a2d`,
