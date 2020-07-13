@@ -1,66 +1,75 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://gatsby-london.netlify.com">
-    <img alt="Gatsby" src="./content/assets/screenshot-desktop.jpg" />
-  </a>
-</p>
+ # Hello Friend
 
-<h1 align="center">
-  London by <a href="https://jamstack.studio">Jamstack Studio</a>
+![Hello Friend](https://github.com/panr/hugo-theme-hello-friend/blob/master/images/screenshot.png?raw=true)
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-blog)
+### DEMO - https://gatsby-hello-friend.now.sh/
 
-</h1>
+<a href="https://www.buymeacoffee.com/panr" target="_blank"><img src="https://res.cloudinary.com/panr/image/upload/v1579374705/buymeacoffee_y6yvov.svg" alt="Buy Me A Coffee" ></a>
 
----
+## Features
 
-A custom, image-centric theme for Gatsby. Made for publishers and portfolios with plenty of graphics to show off to the world. Completely free and fully responsive, released under the MIT license.
+- **dark/light mode**, depending on your preferences (dark is default, but you can change it)
+- great reading experience thanks to [**Inter UI font**](https://rsms.me/inter/), made by [Rasmus Andersson](https://rsms.me/about/)
+- nice code highlighting thanks to [**PrismJS**](https://prismjs.com)
+- responsive youtube/vimeo etc. videos [gatsby-remark-embed-video](https://github.com/borgfriend/gatsby-remark-embed-video)
+- fully responsive site
 
-**Based on [London](https://github.com/TryGhost/London) for Ghost**
+#### Code highlighting
 
-**Demo: https://gatsby-london.netlify.com**
+By default the theme is using PrismJS to color your code syntax. All you need to do is to wrap you code like this:
 
----
-<p align="center">
-  <a href="https://jamstack.studio">
-    <img alt="Jamstack Studio" src="https://raw.githubusercontent.com/ImedAdel/media/master/jamstack.studio_(Laptop%20with%20HiDPI%20screen).png" />
-  </a>
-</p>
+<pre>
+```html
+  // your code here
+```
+</pre>
 
----
+**Supported languages**: bash/shell, css, clike, javascript, apacheconf, actionscript, applescript, c, csharp, cpp, coffeescript, ruby, csp, css-extras, diff, django, docker, elixir, elm, markup-templating, erlang, fsharp, flow, git, go, graphql, less, handlebars, haskell, http, java, json, kotlin, latex, markdown, makefile, objectivec, ocaml, perl, php, php-extras, r, sql, processing, scss, python, jsx, typescript, toml, reason, textile, rust, sass, stylus, scheme, pug, swift, yaml, haml, twig, tsx, vim, visual-basic, wasm.
 
-_I haven't really spent any time adding the JS animations or removing any unused CSS (automatically done by PurgeCSS). You will also need HTML in your Markdown file in order to add CSS classes to your images_
+## How to start
 
----
+First you need to clone this repo by `git clone https://github.com/panr/gatsby-starter-hello-friend.git` then switch to main dir, probably `cd gatsby-starter-hello-friend` should work fine. Next you should install all dependencies by `yarn` and then, to run starter on localhost `yarn dev` (which is `gatsby clean && gatsby develop`). If you want to build starter just run `yarn build` (which is `gatsby build`).
 
-_First time with Gatsby? Take a look on the [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+## How it works
 
-## 🚀 Quick start
+It's a simple starter for blogs and personal sites. You have `posts` and `pages` directories. Posts are generated from markdown files with required fileds: `title`, `date` and `path`. Pages can be generated from markdown files as well (with built-in navigation between them, just like in posts) but you can also generate them from JavaScript files (just like you normally do in Gatsby). If so, you should wrap your content in `Layout` component. It's not required, but highly recommended.
 
-1.  **Create a Gatsby site.**
+#### Configuration
 
-    Use `npx` and the Gatsby CLI to create a new project
+You can configure starter in `gatsby-config.js`. Here's what you can change:
 
-    ```sh
-    # create a new Gatsby site using the blog starter
-    npx gatsby new my-awesome-portfolio https://github.com/ImedAdel/gatsby-london
-    ```
+```
+title: String,
+description: String,
+copyrights: String,
+author: String,
+logo: Shape { // you can place your own logo
+  src: String, // default dir is `/static/`
+  alt: String,
+},
+logoText: String, // change default Hello Friend logo
+defaultTheme: String, // light or dark as default
+postsPerPage: Number, // pagination
+showMenuItems: Number, // number of visible main menu items
+menuMoreText: String, // string of main sub menu trigger (not visible items from main menu)
+mainMenu: arrayOf(Shape { // main menu items
+  title: String,
+  path: String,
+})
+```
 
-1.  **Start developing.**
+## How to contribute
 
-    Navigate into your new site’s directory and start it up.
+If you spot any bugs, please use [Issue Tracker](https://github.com/panr/gatsby-starter-hello-friend/issues) or if you want to add a new feature directly please create a new [Pull Request](https://github.com/panr/gatsby-starter-hello-friend/pulls).
 
-    ```sh
-    cd my-awesome-portfolio/
-    gatsby develop
-    ```
+## Sponsoring
 
-1.  **Open the source code and start editing!**
+If you like my work and want to support the development of the project, now you can! Just:
 
-    Your site is now running at `http://localhost:8000`!
+<a href="https://www.buymeacoffee.com/panr" target="_blank"><img src="https://res.cloudinary.com/panr/image/upload/v1579374705/buymeacoffee_y6yvov.svg" alt="Buy Me A Coffee" ></a>
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+## License
 
-    Open the `my-blog-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+Copyright © 2019 Radosław Kozieł ([@panr](https://radoslawkoziel.pl))
 
-<!-- AUTO-GENERATED-CONTENT:END -->
+The starter is released under the MIT License. Check the [original theme license](https://github.com/panr/gatsby-starter-hello-friend.git/blob/master/LICENSE.md) for additional licensing information.

@@ -1,39 +1,35 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
+import React from 'react'
+import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
+import { useStaticQuery, graphql } from 'gatsby'
 
-import React from "react"
-import PropTypes from "prop-types"
-import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
-
-function SEO({ description, lang, meta, keywords, title }) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
+const SEO = ({ description, lang, meta, keywords, title }) => {
+  const data = useStaticQuery(graphql`
+    query DefaultSEOQuery {
+      site {
+        siteMetadata {
+          title
+          description
+          author
         }
       }
-    `
-  )
-
-  const metaDescription = description || site.siteMetadata.description
+    }
+  `)
+  const {
+    title: siteTitle,
+    description: siteDescription,
+    author,
+  } = data.site.siteMetadata
+  const metaTitle = title || siteTitle
+  const metaDescription = description || siteDescription
 
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      title={metaTitle}
+      titleTemplate={title ? `${title} :: ${siteTitle}` : siteTitle}
       meta={[
         {
           name: `description`,
@@ -41,7 +37,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           property: `og:title`,
-          content: title,
+          content: metaTitle,
         },
         {
           property: `og:description`,
@@ -56,16 +52,16 @@ function SEO({ description, lang, meta, keywords, title }) {
           content: `summary`,
         },
         {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
           name: `twitter:title`,
-          content: title,
+          content: metaTitle,
         },
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `twitter:creator`,
+          content: author,
         },
       ]
         .concat(
@@ -74,7 +70,7 @@ function SEO({ description, lang, meta, keywords, title }) {
                 name: `keywords`,
                 content: keywords.join(`, `),
               }
-            : []
+            : [],
         )
         .concat(meta)}
     />
@@ -84,16 +80,24 @@ function SEO({ description, lang, meta, keywords, title }) {
 SEO.defaultProps = {
   lang: `en`,
   meta: [],
-  keywords: [],
-  description: ``,
+  keywords: [
+    'gatsby',
+    'minimal',
+    'starter',
+    'blog',
+    'theme',
+    'dark',
+    'light',
+    'personal site',
+  ],
 }
 
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
+  meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 }
 
 export default SEO
