@@ -1,12 +1,9 @@
 module.exports = [{
-      plugin: require('../node_modules/gatsby-plugin-google-analytics/gatsby-browser.js'),
-      options: {"plugins":[]},
+      plugin: require('../node_modules/gatsby-remark-images/gatsby-browser.js'),
+      options: {"plugins":[],"maxWidth":800,"quality":100},
     },{
       plugin: require('../node_modules/gatsby-plugin-manifest/gatsby-browser.js'),
-      options: {"plugins":[],"name":"London","short_name":"London","start_url":"/","background_color":"#ffffff","theme_color":"#663399","display":"minimal-ui","icon":"content/assets/gatsby-icon.png","cache_busting_mode":"query","include_favicon":true,"legacy":true,"theme_color_in_head":true,"cacheDigest":"4a9773549091c227cd2eb82ccd9c5e3a"},
-    },{
-      plugin: require('../node_modules/gatsby-plugin-offline/gatsby-browser.js'),
-      options: {"plugins":[]},
+      options: {"plugins":[],"name":"gatsby-starter-hello-friend","short_name":"hello-friend","start_url":"/","background_color":"#292a2d","theme_color":"#292a2d","display":"minimal-ui","icon":"src/images/hello-icon.png","cache_busting_mode":"query","include_favicon":true,"legacy":true,"theme_color_in_head":true,"cacheDigest":"20d2ef53a71d2dd13985c679b0f8e708"},
     },{
       plugin: require('../gatsby-browser.js'),
       options: {"plugins":[]},
