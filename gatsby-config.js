@@ -9,7 +9,6 @@ module.exports = {
   siteMetadata: {
     title: `Planned Universe`,
     description: `plans of all dimensions, contexts, and worlds`,
-    copyrights: '',
     author: `@planneduniverse`,
     logo: {
       src: '',
