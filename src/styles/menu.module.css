@@ -26,6 +26,9 @@
   border-right: 1px solid;
   margin-right: 18px;
 
+  font-family: var(--menu-font);
+  font-size: 18px;
+
   li {
     margin: 0 12px;
   }

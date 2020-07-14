@@ -8,7 +8,7 @@ const postCSSMixins = require('postcss-mixins')
 module.exports = {
   siteMetadata: {
     title: `Planned Universe`,
-    description: `A simple starter for Gatsby. That's it.`,
+    description: `plans of all dimensions, contexts, and worlds`,
     copyrights: '',
     author: `@planneduniverse`,
     logo: {
@@ -36,6 +36,7 @@ module.exports = {
     ],
   },
   plugins: [
+    `gatsby-plugin-sass`,
     `babel-preset-gatsby`,
     `gatsby-plugin-react-helmet`,
     {
