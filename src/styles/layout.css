@@ -238,6 +238,7 @@ button, input, textarea {
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  min-height: 100vh;
 }
 
 .content {
@@ -311,6 +312,8 @@ footer {
   font-size: 1rem;
   text-align: left;
   padding-bottom: 50px;
+  margin-top: auto;
+  width: 100%;
   div {
     width: 90%;
     margin-left: auto;
