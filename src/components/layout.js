@@ -24,7 +24,6 @@ const Layout = ({ children }) => {
             path
           }
           showMenuItems
-          menuMoreText
         }
       }
     }
@@ -36,7 +35,6 @@ const Layout = ({ children }) => {
     defaultTheme,
     mainMenu,
     showMenuItems,
-    menuMoreText,
   } = data.site.siteMetadata
 
   return (
@@ -48,7 +46,6 @@ const Layout = ({ children }) => {
         defaultTheme={defaultTheme}
         mainMenu={mainMenu}
         mainMenuItems={showMenuItems}
-        menuMoreText={menuMoreText}
       />
       <div className="content">{children}</div>
       <Footer />

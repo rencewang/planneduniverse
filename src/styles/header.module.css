@@ -29,6 +29,12 @@
   margin: 0 auto;
   width: 90%;
   max-width: 1600px;
+  @media (--phone) {
+    width: 100%;
+    max-width: 660px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 .logo {
@@ -57,13 +63,10 @@
 
 .text {
   font-family: var(--logo-font);
-  font-weight: 600;
-  font-size: 30px;
+  font-weight: 700;
+  font-size: 33px;
   font-style: italic;
   text-transform: uppercase;
-  @media (--phone) {
-    font-size: 20px
-  }
 }
 
 .right {

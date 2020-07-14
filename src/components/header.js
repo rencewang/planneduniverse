@@ -14,7 +14,6 @@ const Header = props => {
     logoText,
     mainMenu,
     mainMenuItems,
-    menuMoreText,
     defaultTheme,
   } = props
 
@@ -23,7 +22,6 @@ const Header = props => {
     null
   const [userTheme, changeTheme] = useState(defaultThemeState)
   const [isMobileMenuVisible, toggleMobileMenu] = useState(false)
-  const [isSubMenuVisible, toggleSubMenu] = useState(false)
   
   const onChangeTheme = () => {
     const opositeTheme =
@@ -35,7 +33,6 @@ const Header = props => {
       window.localStorage.setItem('theme', opositeTheme)
   }
   const onToggleMobileMenu = () => toggleMobileMenu(!isMobileMenuVisible)
-  const onToggleSubMenu = () => toggleSubMenu(!isSubMenuVisible)
 
   return (
     <>
@@ -58,10 +55,7 @@ const Header = props => {
               mainMenu={mainMenu}
               mainMenuItems={mainMenuItems}
               isMobileMenuVisible={isMobileMenuVisible}
-              isSubMenuVisible={isSubMenuVisible}
-              menuMoreText={menuMoreText}
               onToggleMobileMenu={onToggleMobileMenu}
-              onToggleSubMenu={onToggleSubMenu}
               onChangeTheme={onChangeTheme}
             />
           </span>
@@ -83,7 +77,6 @@ Header.propTypes = {
     }),
   ),
   mainMenuItems: PropTypes.number,
-  menuMoreText: PropTypes.string,
 }
 
 export default Header
