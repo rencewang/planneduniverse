@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
 import Icon from './icon'
-
 import style from '../styles/menu.module.css'
 
 const MainMenu = ({ mainMenu, mainMenuItems, isMobileMenu }) => {

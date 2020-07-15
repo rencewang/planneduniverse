@@ -20,12 +20,12 @@ module.exports = {
     showMenuItems: 2,
     mainMenu: [
       {
-        title: 'About',
-        path: '/about',
-      },
-      {
         title: 'Archive',
         path: '/archive',
+      },
+      {
+        title: 'About',
+        path: '/about',
       },
     ],
   },
