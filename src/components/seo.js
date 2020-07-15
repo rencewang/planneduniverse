@@ -29,7 +29,7 @@ const SEO = ({ description, lang, meta, keywords, title }) => {
         lang,
       }}
       title={metaTitle}
-      titleTemplate={title ? `${title} :: ${siteTitle}` : siteTitle}
+      titleTemplate={title ? `${title} | ${siteTitle}` : siteTitle}
       meta={[
         {
           name: `description`,
@@ -81,14 +81,15 @@ SEO.defaultProps = {
   lang: `en`,
   meta: [],
   keywords: [
-    'gatsby',
-    'minimal',
-    'starter',
+    'floor plan',
     'blog',
-    'theme',
-    'dark',
-    'light',
-    'personal site',
+    'yatch',
+    'plans',
+    'maps',
+    'property',
+    'real estate',
+    'new york',
+    'airplanes',
   ],
 }
 

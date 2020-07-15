@@ -3,9 +3,10 @@ title: "Hello Friend"
 path: "/hello"
 date: "2019-01-17"
 coverImage: "../images/hello.jpg"
-author: "Elliot"
 excerpt: '"Hello, friend?" That''s lame. Maybe I should give you a name...'
 tags: ["rob____ot", "hello friend"]
+location: "Paris"
+type: "Townhouse"
 ---
 
 > "Hello, friend?" That's lame. Maybe I should give you a name...\

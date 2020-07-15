@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+
 import SEO from '../components/seo'
 import Layout from '../components/layout'
 import Post from '../components/post'
@@ -23,7 +24,6 @@ const Index = ({ data, pageContext: { nextPagePath, previousPagePath } }) => {
               title,
               date,
               path,
-              author,
               coverImage,
               excerpt,
               tags,
@@ -36,7 +36,6 @@ const Index = ({ data, pageContext: { nextPagePath, previousPagePath } }) => {
               title={title}
               date={date}
               path={path}
-              author={author}
               coverImage={coverImage}
               tags={tags}
               excerpt={excerpt || autoExcerpt}
@@ -79,7 +78,6 @@ export const postsQuery = graphql`
             title
             date(formatString: "DD MMMM YYYY")
             path
-            author
             excerpt
             tags
             coverImage {

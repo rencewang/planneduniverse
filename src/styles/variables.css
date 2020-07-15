@@ -21,7 +21,6 @@
 
   /* fonts used */
   --logo-font: "degular", sans-serif;
-  --menu-font: "atten-new", sans-serif;
 }
 
 @custom-media --phone (width < 684px);

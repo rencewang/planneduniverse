@@ -249,6 +249,8 @@ button, input, textarea {
   justify-content: center;
   margin: 50px auto;
   width: 100%;
+  position: relative;
+  overflow-x: hidden;
 
   @media (--phone) {
     margin-top: 0;
@@ -332,6 +334,7 @@ footer {
   @media (--phone) {
     display: flex;
     flex-direction: column;
+    text-align: center;
   }
 
   background: linear-gradient( transparent 10%, var(--light-header-background));
