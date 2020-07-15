@@ -249,7 +249,6 @@ button, input, textarea {
   justify-content: center;
   margin: 50px auto;
   width: 100%;
-  max-width: 800px;;
 
   @media (--phone) {
     margin-top: 0;
@@ -257,6 +256,10 @@ button, input, textarea {
 
   @media (--tablet) {
     max-width: 660px;
+  }
+
+  .post-side {
+    margin-right: auto;
   }
 }
 
