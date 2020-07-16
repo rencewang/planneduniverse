@@ -8,9 +8,9 @@ import Navigation from '../components/navigation'
 
 import '../styles/layout.css'
 
-const Locations = ({
+const Types = ({
   data,
-  pageContext: { nextPagePath, previousPagePath, location },
+  pageContext: { nextPagePath, previousPagePath, type },
 }) => {
   const {
     allMarkdownRemark: { edges: posts },
@@ -21,7 +21,7 @@ const Locations = ({
       <SEO />
       <Layout>
         <div className="infoBanner">
-          Plans located in: <span>{location}</span>
+          Plans of: <span>{type}</span>
         </div>
 
         {posts.map(({ node }) => {
@@ -68,7 +68,7 @@ const Locations = ({
   )
 }
 
-Locations.propTypes = {
+Types.propTypes = {
   data: PropTypes.object.isRequired,
   pageContext: PropTypes.shape({
     nextPagePath: PropTypes.string,
@@ -77,9 +77,9 @@ Locations.propTypes = {
 }
 
 export const postsQuery = graphql`
-  query($limit: Int!, $skip: Int!, $location: String!) {
+  query($limit: Int!, $skip: Int!, $type: String!) {
     allMarkdownRemark(
-      filter: { frontmatter: { location: { in: [$location] } } }
+      filter: { frontmatter: { type: { in: [$type] } } }
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip
@@ -111,4 +111,4 @@ export const postsQuery = graphql`
   }
 `
 
-export default Locations
+export default Types

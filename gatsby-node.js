@@ -10,6 +10,7 @@ const pageTemplate = path.resolve(`./src/templates/page.js`)
 const indexTemplate = path.resolve(`./src/templates/index.js`)
 const tagsTemplate = path.resolve(`./src/templates/tags.js`)
 const locationTemplate = path.resolve(`./src/templates/location.js`)
+const typeTemplate = path.resolve(`./src/templates/type.js`)
 
 exports.createPages = ({ actions, graphql, getNodes }) => {
   const { createPage } = actions
@@ -28,6 +29,7 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
               title
               tags
               location
+              type
             }
             fileAbsolutePath
           }
@@ -139,10 +141,35 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
       })
     }, location)
 
+    // Create type pages
+    const types = filter(
+      type => not(isNil(type)),
+      uniq(flatMap(post => post.frontmatter.type, posts)),
+    )
+
+    forEach(type => {
+      const postsWithType = posts.filter(
+        post =>
+          post.frontmatter.type && post.frontmatter.type.indexOf(type) !== -1,
+      )
+
+      paginate({
+        createPage,
+        items: postsWithType,
+        component: typeTemplate,
+        itemsPerPage: siteMetadata.postsPerPage,
+        pathPrefix: `/type/${toKebabCase(type).toLowerCase()}`,
+        context: {
+          type,
+        },
+      })
+    }, types)
+
     return {
       sortedPages,
       tags,
       location,
+      types,
     }
   })
 }

@@ -39,10 +39,10 @@ export default () => {
 
             <h1>Type</h1>
             <ul>
-                {data.allMarkdownRemark.type.map(location => (
-                <li key={location.fieldValue}>
-                    <Link to={`/place/${kebabCase(location.fieldValue)}/`}>
-                    {location.fieldValue} ({location.totalCount})
+                {data.allMarkdownRemark.type.map(type => (
+                <li key={type.fieldValue}>
+                    <Link to={`/type/${kebabCase(type.fieldValue)}/`}>
+                    {type.fieldValue} ({type.totalCount})
                     </Link>
                 </li>
                 ))}
@@ -50,83 +50,4 @@ export default () => {
             
         </div>
     )
-
-    // <StaticQuery 
-    //     query={graphql`
-    //         query {
-    //             allMarkdownRemark(
-    //                 filter: { fileAbsolutePath: { regex: "//posts//" } }
-    //                 sort: { fields: [frontmatter___date], order: DESC }
-    //             ) {
-    //                 edges {
-    //                     node {
-    //                         id
-    //                         excerpt(pruneLength: 250)
-    //                         frontmatter {
-    //                         date(formatString: "DD MMMM YYYY")
-    //                         title
-    //                         path
-    //                         tags
-    //                         location
-    //                         type
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     `}
-    //     render={({
-    //         data: {
-    //             allMarkdownRemark: { edges },
-    //         },
-    //     }) => (
-    //         <div className={style.sidebar}>
-    //             Hi
-    //         </div>
-    //     )}
-    // />
 }
-
-// const Sidebar = ({ data }) => {
-//     const {
-//       allMarkdownRemark: { edges: posts },
-//     } = data
-
-//     return(
-//         <div className={style.sidebar}>
-//             Hi
-//         </div>
-//     )
-// }
-
-// const postsQuery = graphql`
-//   query{
-//     allMarkdownRemark(
-//       filter: { fileAbsolutePath: { regex: "//posts//" } }
-//       sort: { fields: [frontmatter___date], order: DESC }
-//     ) {
-//       edges {
-//         node {
-//           id
-//           excerpt
-//           frontmatter {
-//             title
-//             date(formatString: "DD MMMM YYYY")
-//             path
-//             excerpt
-//             tags
-//             coverImage {
-//               childImageSharp {
-//                 fluid(maxWidth: 800) {
-//                   ...GatsbyImageSharpFluid
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
-
-// export default Sidebar

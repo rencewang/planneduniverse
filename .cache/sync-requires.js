@@ -11,6 +11,7 @@ exports.components = {
   "component---src-templates-index-js": hot(preferDefault(require("/Volumes/Data/Git/fpworld/src/templates/index.js"))),
   "component---src-templates-location-js": hot(preferDefault(require("/Volumes/Data/Git/fpworld/src/templates/location.js"))),
   "component---src-templates-page-js": hot(preferDefault(require("/Volumes/Data/Git/fpworld/src/templates/page.js"))),
-  "component---src-templates-tags-js": hot(preferDefault(require("/Volumes/Data/Git/fpworld/src/templates/tags.js")))
+  "component---src-templates-tags-js": hot(preferDefault(require("/Volumes/Data/Git/fpworld/src/templates/tags.js"))),
+  "component---src-templates-type-js": hot(preferDefault(require("/Volumes/Data/Git/fpworld/src/templates/type.js")))
 }
 

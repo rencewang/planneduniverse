@@ -8,6 +8,7 @@ exports.components = {
   "component---src-templates-index-js": () => import("./../../src/templates/index.js" /* webpackChunkName: "component---src-templates-index-js" */),
   "component---src-templates-location-js": () => import("./../../src/templates/location.js" /* webpackChunkName: "component---src-templates-location-js" */),
   "component---src-templates-page-js": () => import("./../../src/templates/page.js" /* webpackChunkName: "component---src-templates-page-js" */),
-  "component---src-templates-tags-js": () => import("./../../src/templates/tags.js" /* webpackChunkName: "component---src-templates-tags-js" */)
+  "component---src-templates-tags-js": () => import("./../../src/templates/tags.js" /* webpackChunkName: "component---src-templates-tags-js" */),
+  "component---src-templates-type-js": () => import("./../../src/templates/type.js" /* webpackChunkName: "component---src-templates-type-js" */)
 }
 
