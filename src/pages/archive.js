@@ -5,11 +5,7 @@ import PostLink from "../components/postlink"
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
-const Archive = ({
-  data: {
-    allMarkdownRemark: { edges },
-  },
-}) => {
+const Archive = ({data: {allMarkdownRemark: { edges }}}) => {
   const Posts = edges
     .filter(edge => !!edge.node.frontmatter.date)
     .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
