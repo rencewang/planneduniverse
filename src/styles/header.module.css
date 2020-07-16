@@ -1,9 +1,9 @@
 @import "./variables.css";
 
 .header {
-  background: linear-gradient( var(--light-header-background) 70%, transparent);
+  background: linear-gradient( var(--light-header-background) 70%, rgba(255,255,255,0));
   :global .dark-theme :local & {
-    background: linear-gradient( var(--dark-header-background) 70%, transparent);
+    background: linear-gradient( var(--dark-header-background) 70%, rgba(255,255,255,0));
   }
   
   display: flex;
