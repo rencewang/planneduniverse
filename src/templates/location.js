@@ -10,7 +10,7 @@ import '../styles/layout.css'
 
 const Locations = ({
   data,
-  pageContext: { nextPagePath, previousPagePath, tag },
+  pageContext: { nextPagePath, previousPagePath, location },
 }) => {
   const {
     allMarkdownRemark: { edges: posts },
@@ -21,7 +21,7 @@ const Locations = ({
       <SEO />
       <Layout>
         <div className="infoBanner">
-          Posts with type: <span>#{tag}</span>
+          Plans located in: <span>{location}</span>
         </div>
 
         {posts.map(({ node }) => {
@@ -36,6 +36,8 @@ const Locations = ({
               coverImage,
               excerpt,
               tags,
+              location,
+              type
             },
           } = node
 
@@ -64,7 +66,7 @@ const Locations = ({
   )
 }
 
-Tags.propTypes = {
+Locations.propTypes = {
   data: PropTypes.object.isRequired,
   pageContext: PropTypes.shape({
     nextPagePath: PropTypes.string,
@@ -73,9 +75,9 @@ Tags.propTypes = {
 }
 
 export const postsQuery = graphql`
-  query($limit: Int!, $skip: Int!, $tag: String!) {
+  query($limit: Int!, $skip: Int!, $location: String!) {
     allMarkdownRemark(
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+      filter: { frontmatter: { location: { in: [$location] } } }
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip
@@ -91,6 +93,8 @@ export const postsQuery = graphql`
             author
             excerpt
             tags
+            location
+            type
             coverImage {
               childImageSharp {
                 fluid(maxWidth: 800) {

@@ -1,10 +1,7 @@
 import React from "react"
-import PropTypes from "prop-types"
 import kebabCase from "lodash/kebabCase"
-import { Helmet } from "react-helmet"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
-import PostLink from "../components/postlink"
 import style from '../styles/sidebar.module.css'
 
 export default () => {

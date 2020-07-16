@@ -9,6 +9,7 @@ const getType = node => node.fileAbsolutePath.match(pageTypeRegex)[1]
 const pageTemplate = path.resolve(`./src/templates/page.js`)
 const indexTemplate = path.resolve(`./src/templates/index.js`)
 const tagsTemplate = path.resolve(`./src/templates/tags.js`)
+const locationTemplate = path.resolve(`./src/templates/location.js`)
 
 exports.createPages = ({ actions, graphql, getNodes }) => {
   const { createPage } = actions
@@ -26,6 +27,7 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
               path
               title
               tags
+              location
             }
             fileAbsolutePath
           }
@@ -113,9 +115,34 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
       })
     }, tags)
 
+    // Create location pages
+    const location = filter(
+      location => not(isNil(location)),
+      uniq(flatMap(post => post.frontmatter.location, posts)),
+    )
+
+    forEach(location => {
+      const postsWithLocation = posts.filter(
+        post =>
+          post.frontmatter.location && post.frontmatter.location.indexOf(location) !== -1,
+      )
+
+      paginate({
+        createPage,
+        items: postsWithLocation,
+        component: locationTemplate,
+        itemsPerPage: siteMetadata.postsPerPage,
+        pathPrefix: `/place/${toKebabCase(location).toLowerCase()}`,
+        context: {
+          location,
+        },
+      })
+    }, location)
+
     return {
       sortedPages,
       tags,
+      location,
     }
   })
 }
