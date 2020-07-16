@@ -2,6 +2,7 @@ import React from "react"
 import kebabCase from "lodash/kebabCase"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
+import Search from "./search"
 import style from '../styles/sidebar.module.css'
 
 export default () => {
@@ -20,11 +21,29 @@ export default () => {
                     totalCount
                 }
             }
+            siteSearchIndex {
+                index
+            }
         }
     `)
 
     return (
         <div className={style.sidebar}>
+
+            {/* <StaticQuery
+                query={graphql`
+                query SearchIndexQuery {
+                    siteSearchIndex {
+                    index
+                    }
+                }
+                `}
+                render={data => (
+                    <Search searchIndex={data.siteSearchIndex.index} />
+                )}
+            /> */}
+            
+            <Search searchIndex={data.siteSearchIndex.index} />
 
             <h1>Places</h1>
             <ul>
