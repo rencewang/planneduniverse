@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Index } from "elasticlunr"
 import { Link } from "gatsby"
+import $ from "jquery"
 
 import style from '../styles/sidebar.module.css'
 
@@ -13,23 +14,35 @@ export default class Search extends Component {
       results: [],
     }
   }
+  
+  componentDidMount(prevState) {
+    const searchResults = document.getElementById("results")
+    if (prevState.results && prevState.results.length > 0) {
+      searchResults.style.opacity = "1"
+    }
+  }
 
   render() {
     return (
       <div className={style.search}>
 
         <div className={style.inputbox}>
-          <div>Search for:</div><input type="text" value={this.state.query} onChange={this.search} />
+          <div>Search for:</div><input id="searchinput" type="text" value={this.state.query} onChange={this.search} />
         </div>
 
-        <div className={style.searchresults}>
-          <ul>
-            {this.state.results.map(page => (
-              <li key={page.id}>
-                <Link to={page.path}>{page.title}</Link>
-              </li>
-            ))}
-          </ul>
+        <div id="results" className={style.searchresults}>
+          {(this.state.results && this.state.results.length > 0) ? (
+            <ul>
+              {this.state.results.map(page => (
+                <li key={page.id}>
+                  <Link to={page.path}>{page.title}</Link>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div className={style.noresults}>nothing found</div>
+          )}
+
         </div>
 
       </div>

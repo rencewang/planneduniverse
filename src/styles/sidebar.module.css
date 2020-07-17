@@ -13,6 +13,10 @@
         :global .dark-theme :local & {
           background: var(--dark-background-secondary);
         }
+        @media (--phone) {
+            font-size: 22px;
+            text-align: center;
+        }
     }
     ul {
         text-align: left;
@@ -59,12 +63,18 @@
         display: flex;
     }
     .searchresults {
+        /* opacity: 0; */
         position: absolute;
         width: 90%;
         border-radius: 10px;
         background-color: var(--light-header-background);
         :global .dark-theme :local & {
             background-color: var(--dark-header-background);
+        }
+        .noresults {
+            padding-left: 10px;
+            text-align: left;
+            font-style: italic;
         }
     }
 }

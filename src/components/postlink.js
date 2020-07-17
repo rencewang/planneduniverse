@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 
 import '../styles/archive.scss'
+// links for archive page
 
 const PostLink = ({ post }) => (
   <div>
