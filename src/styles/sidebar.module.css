@@ -70,6 +70,9 @@
         :focus {
             background-color: green;
         }
+        @media (--phone) {
+            font-size: 16px;
+        }
     }
     .inputbox {
         display: flex;
