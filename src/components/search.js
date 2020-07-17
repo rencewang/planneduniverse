@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import { Index } from "elasticlunr"
 import { Link } from "gatsby"
-import $ from "jquery"
 
 import style from '../styles/sidebar.module.css'
 
@@ -19,23 +18,12 @@ export default class Search extends Component {
     const inputField = document.querySelector('input[type="text"]')
     const results = document.getElementById('results')
     inputField.addEventListener('focus', (event) => {
-      results.style.opacity = '1' 
-      console.log("focus")
+      results.style.opacity = '1'
     }, true)
     inputField.addEventListener('blur', (event) => {
       results.style.opacity = '0'
     }, true)
   }
-
-  // onBlur = () => {
-  //   const results = document.getElementById('results')
-  //   results.style.background = "pink"
-  // }
-
-  // onFocus = () => {
-  //   const results = document.getElementById('results')
-  //   results.style.background = "blue"
-  // }
 
   render() {
     return (

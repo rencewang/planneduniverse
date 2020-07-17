@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 
 import SEO from '../components/seo'
 import Layout from '../components/layout'
-import Post from '../components/post'
 import Postcard from '../components/postcard'
 import Navigation from '../components/navigation'
 

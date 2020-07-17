@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 
 import PostLink from "../components/postlink"
 import Layout from '../components/layout'
-import SEO from '../components/seo'
 
 import '../styles/archive.scss'
 

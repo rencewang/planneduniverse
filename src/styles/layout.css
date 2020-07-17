@@ -299,6 +299,9 @@ hr {
     font-size: 25px;
     text-align: center;
   }
+  @media screen and (max-width: 1200px) {
+    width: 60vw;
+  }
 }
 
 .hidden {

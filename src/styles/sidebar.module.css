@@ -4,18 +4,20 @@
     top: 150px;
     right: 0;
     width: 30vw;
-    padding: 0 20px 0 10px;
+    padding-left: 10px;
+    margin-right: 5vw;
     h1 {
         padding: 10px 20px;
         margin-top: 0;
+        margin-bottom: 10px;
         border-radius: 10px;
         background: var(--light-background-secondary);
         :global .dark-theme :local & {
           background: var(--dark-background-secondary);
         }
         @media (--phone) {
-            font-size: 22px;
             text-align: center;
+            font-size: 22px;
         }
     }
     ul {
@@ -23,16 +25,22 @@
         margin-left: 10px;
         list-style-type: none;
     }
+    @media screen and (max-width: 1250px) {
+        padding: 0 20px 0 10px;
+        margin-right: 0;
+    }
     @media (--tablet) {
         position: relative;
         overflow: auto;
-        width: 90%;
+        width: 95%;
         margin: 20px auto 30px auto;
+        padding: 0;
         top: auto;
         right: auto;
     }
     .mobileflex {
         @media (--tablet) {
+            margin-top: 10px;
             display: flex;
             justify-content: space-between;
             div {
@@ -44,6 +52,7 @@
 
 .search {
     width: 100%;
+    margin-bottom: 10px;
     input {
         border: none;
         border-bottom: 2px solid var(--light-color);
