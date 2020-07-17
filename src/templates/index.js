@@ -7,7 +7,7 @@ import Layout from '../components/layout'
 import Postcard from '../components/postcard'
 import Navigation from '../components/navigation'
 
-// import '../styles/scroll.scss'
+import '../styles/layout.css'
 
 const Index = ({ data, pageContext: { nextPagePath, previousPagePath } }) => {
   const {
@@ -53,6 +53,7 @@ const Index = ({ data, pageContext: { nextPagePath, previousPagePath } }) => {
       <SEO />
       <Layout>
 
+        <div className="index-container">
         {posts.map(({ node }) => {
         const {
           id,
@@ -90,6 +91,7 @@ const Index = ({ data, pageContext: { nextPagePath, previousPagePath } }) => {
           nextPath={nextPagePath}
           nextLabel="Older posts"
         />
+        </div>
 
       </Layout>
     </>

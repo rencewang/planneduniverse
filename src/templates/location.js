@@ -24,6 +24,7 @@ const Locations = ({
           Plans in: <span>{location}</span>
         </div>
 
+        <div className="index-container">
         {posts.map(({ node }) => {
           const {
             id,
@@ -63,6 +64,8 @@ const Locations = ({
           nextPath={nextPagePath}
           nextLabel="Older posts"
         />
+        </div>
+
       </Layout>
     </>
   )

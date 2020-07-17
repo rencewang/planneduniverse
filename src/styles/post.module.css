@@ -16,7 +16,6 @@
   @media screen and (max-width: 1200px) {
     width: 60vw;
   }
-
   @media (--tablet) {
     max-width: 660px;
     width: 95%;

@@ -24,6 +24,7 @@ const Types = ({
           Plans of: <span>{type}</span>
         </div>
 
+        <div className="index-container">
         {posts.map(({ node }) => {
           const {
             id,
@@ -63,6 +64,8 @@ const Types = ({
           nextPath={nextPagePath}
           nextLabel="Older posts"
         />
+        </div>
+        
       </Layout>
     </>
   )

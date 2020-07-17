@@ -265,6 +265,21 @@ button, input, textarea {
   }
 }
 
+.index-container {
+  width: 70vw;
+  max-width: 750px;
+  padding: 0 0 20px 0;
+  margin: 0 auto 20px 5vw;
+  @media screen and (max-width: 1200px) {
+    width: 60vw;
+  }
+  @media (--tablet) {
+    max-width: 660px;
+    width: 95%;
+    margin: 0 auto 20px auto;
+  }
+}
+
 hr {
   width: 100%;
   border: none;
