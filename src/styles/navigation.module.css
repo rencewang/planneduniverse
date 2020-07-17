@@ -2,9 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1024px;
-  max-width: 100%;
-  margin: 80px 0 40px;
+  width: 70vw;
+  margin: 80px auto 0 5vw;
 }
 
 .button {

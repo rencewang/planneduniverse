@@ -15,6 +15,8 @@ const Post = ({
   excerpt,
   tags,
   html,
+  location,
+  type,
   previousPost,
   nextPost,
 }) => {
@@ -26,19 +28,26 @@ const Post = ({
   return (
     <div className={style.post}>
       <div className={style.postContent}>
+        
         <h1 className={style.title}>
           {excerpt ? <Link to={path}>{title}</Link> : title}
         </h1>
+
         <div className={style.meta}>
-          {date}
-          {tags ? (
-            <div className={style.tags}>
-              {tags.map(tag => (
-                <Link to={`/tag/${toKebabCase(tag)}/`} key={toKebabCase(tag)}>
-                  <span className={style.tag}>#{tag}</span>
-                </Link>
-              ))}
-            </div>
+          {location ? (
+              <div className={style.tags}>
+                  <Link to={`/place/${toKebabCase(location).toLowerCase()}/`} key={toKebabCase(location)}>
+                      <span className={style.tag}>{location}</span>
+                  </Link>
+              </div>
+          ) : null}
+
+          {type ? (
+              <div className={style.tags}>
+                  <Link to={`/type/${toKebabCase(type).toLowerCase()}/`} key={toKebabCase(type)}>
+                      <span className={style.tag}>{type}</span>
+                  </Link>
+              </div>
           ) : null}
         </div>
 
@@ -80,6 +89,8 @@ Post.propTypes = {
   excerpt: PropTypes.string,
   html: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
+  location: PropTypes.string,
+  type: PropTypes.string,
   previousPost: PropTypes.object,
   nextPost: PropTypes.object,
 }

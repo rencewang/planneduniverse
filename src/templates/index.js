@@ -5,42 +5,84 @@ import { graphql } from 'gatsby'
 import SEO from '../components/seo'
 import Layout from '../components/layout'
 import Post from '../components/post'
+import Postcard from '../components/postcard'
 import Navigation from '../components/navigation'
+
+// import '../styles/scroll.scss'
 
 const Index = ({ data, pageContext: { nextPagePath, previousPagePath } }) => {
   const {
     allMarkdownRemark: { edges: posts },
   } = data
 
+  // let isMouseHover = false
+  // const test = document.getElementById("scroll")
+
+  // useEffect(()=>{
+  //   test.addEventListener("mouseleave", function (event) {
+  //     isMouseHover = false
+  //     // event.target.textContent = "mouse out"
+  //     console.log(isMouseHover)
+  //   }, false)
+  //   test.addEventListener("mouseover", function (event) {
+  //     isMouseHover = true
+  //     // event.target.textContent = "mouse in"
+  //     console.log(isMouseHover)
+  //   }, false)
+  //   document.addEventListener('wheel', horizontalScroll, {passive: false})
+  //   document.addEventListener('mousewheel', horizontalScroll, {passive: false})
+  //   if(!isMouseHover) {
+  //     document.removeEventListener('wheel', horizontalScroll, {passive: false})
+  //     document.removeEventListener('mousewheel', horizontalScroll, {passive: false})
+  //   }
+  // })
+
+  // const horizontalScroll = e => {
+  //   if(isMouseHover) {
+  //     e.preventDefault()
+  //     var container = document.getElementById('scroll')
+  //     var containerScrollPosition = document.getElementById('scroll').scrollLeft
+  //     container.scrollTo({
+  //         top: 0,
+  //         left: containerScrollPosition + e.deltaY
+  //     })
+  //   }
+  // }
+
   return (
     <>
       <SEO />
       <Layout>
-        {posts.map(({ node }) => {
-          const {
-            id,
-            excerpt: autoExcerpt,
-            frontmatter: {
-              title,
-              date,
-              path,
-              coverImage,
-              excerpt,
-              tags,
-            },
-          } = node
 
-          return (
-            <Post
-              key={id}
-              title={title}
-              date={date}
-              path={path}
-              coverImage={coverImage}
-              tags={tags}
-              excerpt={excerpt || autoExcerpt}
-            />
-          )
+        {posts.map(({ node }) => {
+        const {
+          id,
+          excerpt: autoExcerpt,
+          frontmatter: {
+            title,
+            date,
+            path,
+            coverImage,
+            excerpt,
+            tags,
+            location,
+            type,
+          },
+        } = node
+
+        return (
+          <Postcard
+            key={id}
+            title={title}
+            date={date}
+            path={path}
+            coverImage={coverImage}
+            tags={tags}
+            location={location}
+            type={type}
+            excerpt={excerpt || autoExcerpt}
+          />
+        )
         })}
 
         <Navigation
@@ -49,6 +91,7 @@ const Index = ({ data, pageContext: { nextPagePath, previousPagePath } }) => {
           nextPath={nextPagePath}
           nextLabel="Older posts"
         />
+
       </Layout>
     </>
   )
@@ -80,6 +123,8 @@ export const postsQuery = graphql`
             path
             excerpt
             tags
+            location
+            type
             coverImage {
               childImageSharp {
                 fluid(maxWidth: 800) {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import SEO from '../components/seo'
 import Layout from '../components/layout'
-import Post from '../components/post'
+import Postcard from '../components/postcard'
 import Navigation from '../components/navigation'
 
 import '../styles/layout.css'
@@ -21,7 +21,7 @@ const Locations = ({
       <SEO />
       <Layout>
         <div className="infoBanner">
-          Plans located in: <span>{location}</span>
+          Plans in: <span>{location}</span>
         </div>
 
         {posts.map(({ node }) => {
@@ -42,7 +42,7 @@ const Locations = ({
           } = node
 
           return (
-            <Post
+            <Postcard
               key={id}
               title={title}
               date={date}

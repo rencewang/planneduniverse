@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import SEO from '../components/seo'
 import Layout from '../components/layout'
-import Post from '../components/post'
+import Postcard from '../components/postcard'
 import Navigation from '../components/navigation'
 
 import '../styles/layout.css'
@@ -36,17 +36,21 @@ const Tags = ({
               coverImage,
               excerpt,
               tags,
+              location,
+              type,
             },
           } = node
 
           return (
-            <Post
+            <Postcard
               key={id}
               title={title}
               date={date}
               path={path}
               author={author}
               tags={tags}
+              location={location}
+              type={type}
               coverImage={coverImage}
               excerpt={excerpt || autoExcerpt}
             />
@@ -91,6 +95,8 @@ export const postsQuery = graphql`
             author
             excerpt
             tags
+            location
+            type
             coverImage {
               childImageSharp {
                 fluid(maxWidth: 800) {

@@ -2,6 +2,8 @@ import React, { Component } from "react"
 import { Index } from "elasticlunr"
 import { Link } from "gatsby"
 
+import style from '../styles/sidebar.module.css'
+
 // Search component
 export default class Search extends Component {
   constructor(props) {
@@ -14,15 +16,22 @@ export default class Search extends Component {
 
   render() {
     return (
-      <div>
-        <input type="text" value={this.state.query} onChange={this.search} />
-        <ul>
-          {this.state.results.map(page => (
-            <li key={page.id}>
-              <Link to={"/" + page.path}>{page.title}</Link>
-            </li>
-          ))}
-        </ul>
+      <div className={style.search}>
+
+        <div className={style.inputbox}>
+          <div>Search for:</div><input type="text" value={this.state.query} onChange={this.search} />
+        </div>
+
+        <div className={style.searchresults}>
+          <ul>
+            {this.state.results.map(page => (
+              <li key={page.id}>
+                <Link to={page.path}>{page.title}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
       </div>
     )
   }

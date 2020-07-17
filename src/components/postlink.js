@@ -1,11 +1,18 @@
 import React from "react"
 import { Link } from "gatsby"
 
+import '../styles/archive.scss'
+
 const PostLink = ({ post }) => (
   <div>
     <Link to={post.frontmatter.path}>
-      {post.frontmatter.title} {post.frontmatter.date} {post.frontmatter.location} {post.frontmatter.type} 
+      <div className="archive-title">{post.frontmatter.title}</div> 
     </Link>
+    <div className="archive-details">
+      on {post.frontmatter.date} <br/>
+      in {post.frontmatter.location} <span> </span>
+      of {post.frontmatter.type}
+    </div>
   </div>
 )
 

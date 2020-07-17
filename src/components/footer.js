@@ -4,8 +4,7 @@ const Footer = () => (
   <footer>
     <div>
       <span className="footerCopyrights">
-        © {(new Date()).getFullYear()} built with <a href="https://www.gatsbyjs.org">Gatsby</a> <span> </span> 
-        template by <a href="https://radoslawkoziel.pl">panr</a>
+        © {(new Date()).getFullYear()} Planned Universe | Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
       </span>
     </div>
   </footer>

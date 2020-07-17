@@ -1,6 +1,70 @@
 .sidebar {
     position: fixed;
+    overflow: hidden;
     top: 150px;
     right: 0;
-    width: 10vw;
+    width: 30vw;
+    padding: 0 20px 0 10px;
+    h1 {
+        padding: 10px 20px;
+        margin-top: 0;
+        border-radius: 10px;
+        background: var(--light-background-secondary);
+        :global .dark-theme :local & {
+          background: var(--dark-background-secondary);
+        }
+    }
+    ul {
+        text-align: left;
+        margin-left: 10px;
+        list-style-type: none;
+    }
+    @media (--tablet) {
+        position: relative;
+        overflow: auto;
+        width: 90%;
+        margin: 20px auto 30px auto;
+        top: auto;
+        right: auto;
+    }
+    .mobileflex {
+        @media (--tablet) {
+            display: flex;
+            justify-content: space-between;
+            div {
+                width: 45%;
+            }
+        }
+    }
+}
+
+.search {
+    width: 100%;
+    input {
+        border: none;
+        border-bottom: 2px solid var(--light-color);
+        background-color: var(--light-background);
+        :global .dark-theme :local & {
+            border-bottom: 2px solid var(--dark-color);
+            background-color: var(--dark-background);
+            caret-color: var(--dark-color);
+            color: var(--dark-color);
+        }
+        outline: none;
+        flex-grow: 1;
+        margin-left: 5px;
+        margin-bottom: 10px;
+    }
+    .inputbox {
+        display: flex;
+    }
+    .searchresults {
+        position: absolute;
+        width: 90%;
+        border-radius: 10px;
+        background-color: var(--light-header-background);
+        :global .dark-theme :local & {
+            background-color: var(--dark-header-background);
+        }
+    }
 }

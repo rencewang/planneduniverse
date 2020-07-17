@@ -19,10 +19,10 @@ module.exports = {
     postsPerPage: 5,
     showMenuItems: 2,
     mainMenu: [
-      {
-        title: 'Archive',
-        path: '/archive',
-      },
+      // {
+      //   title: 'Archive',
+      //   path: '/archive',
+      // },
       {
         title: 'About',
         path: '/about',

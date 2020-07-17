@@ -1,0 +1,17 @@
+.index-hori {
+    width: 70vw;
+    height: 75vh;
+    margin: 0 auto 0 5vw;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    overflow-x: auto;
+    div {
+        flex-shrink: 0;
+    }
+    
+}
+
+.index-hori::-webkit-scrollbar {
+    display: none;
+}

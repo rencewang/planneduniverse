@@ -5,6 +5,8 @@ import PostLink from "../components/postlink"
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
+import '../styles/archive.scss'
+
 const Archive = ({data: {allMarkdownRemark: { edges }}}) => {
   const Posts = edges
     .filter(edge => !!edge.node.frontmatter.date)
@@ -12,7 +14,9 @@ const Archive = ({data: {allMarkdownRemark: { edges }}}) => {
 
   return (
     <Layout>
-      {Posts}
+      <div className="archive-listing">
+        {Posts}
+      </div>
     </Layout>
 )}
 
