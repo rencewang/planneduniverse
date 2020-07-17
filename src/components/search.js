@@ -15,12 +15,27 @@ export default class Search extends Component {
     }
   }
   
-  componentDidMount(prevState) {
-    const searchResults = document.getElementById("results")
-    if (prevState.results && prevState.results.length > 0) {
-      searchResults.style.opacity = "1"
-    }
+  componentDidMount() {
+    const inputField = document.querySelector('input[type="text"]')
+    const results = document.getElementById('results')
+    inputField.addEventListener('focus', (event) => {
+      results.style.opacity = '1' 
+      console.log("focus")
+    }, true)
+    inputField.addEventListener('blur', (event) => {
+      results.style.opacity = '0'
+    }, true)
   }
+
+  // onBlur = () => {
+  //   const results = document.getElementById('results')
+  //   results.style.background = "pink"
+  // }
+
+  // onFocus = () => {
+  //   const results = document.getElementById('results')
+  //   results.style.background = "blue"
+  // }
 
   render() {
     return (
@@ -42,7 +57,6 @@ export default class Search extends Component {
           ) : (
             <div className={style.noresults}>nothing found</div>
           )}
-
         </div>
 
       </div>
