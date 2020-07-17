@@ -5,7 +5,7 @@ author: "Planned Universe"
 path: "/about"
 ---
 
-## Hello
+## Hello there
 
 **Planned Universe** is an initiative about plans of all kinds, whether it be floor plans, yatch plans, aircraft plans, urban master plans, subway plans, airport plans... Ranging from penthouses in Midtown Manhattan to single-family homes in BHPO to mansions in the Swiss Alps, from Milan to Shanghai...
 
