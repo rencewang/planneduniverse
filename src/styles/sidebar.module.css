@@ -90,5 +90,8 @@
             text-align: left;
             font-style: italic;
         }
+        @media (--tablet) {
+            width: 100%;
+        }
     }
 }
