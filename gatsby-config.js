@@ -137,5 +137,12 @@ module.exports = {
         filter: (node, getNode) => node.frontmatter.tags !== "exempt",
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-156829821-4",
+        head: true,
+      }
+    },
   ],
 }
