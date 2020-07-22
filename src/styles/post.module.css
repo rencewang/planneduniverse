@@ -69,4 +69,7 @@
 
 .postContent {
   position: relative;
+  .markdowncontent a {
+    text-decoration: underline;
+  }
 }

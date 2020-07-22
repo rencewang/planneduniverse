@@ -51,12 +51,12 @@ const Post = ({
           ) : null}
         </div>
 
-        {coverImage && (
+        {/* {coverImage && (
           <Img
             fluid={coverImage.childImageSharp.fluid}
             className={style.coverImage}
           />
-        )}
+        )} */}
 
         {excerpt ? (
           <>
@@ -67,7 +67,7 @@ const Post = ({
           </>
         ) : (
           <>
-            <div dangerouslySetInnerHTML={{ __html: html }} />
+            <div className={style.markdowncontent} dangerouslySetInnerHTML={{ __html: html }} />
             <Navigation
               previousPath={previousPath}
               previousLabel={previousLabel}
