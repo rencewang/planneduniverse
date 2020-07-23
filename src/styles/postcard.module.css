@@ -1,18 +1,6 @@
 .post {
-  /* width: 70vw;
-  max-width: 750px; */
   text-align: left;
   padding: 0 0 20px 0;
-
-  /* @media screen and (max-width: 1200px) {
-    width: 60vw;
-  }
-
-  @media (--tablet) {
-    max-width: 660px;
-    width: 95%;
-    margin: 0 auto 20px auto;
-  } */
 
   h1 {
     margin: 0 0 10px;

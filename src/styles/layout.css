@@ -249,13 +249,13 @@ button, input, textarea {
   justify-content: center;
   margin: 50px auto;
   width: 100%;
+  max-width: 1600px;
   position: relative;
   overflow-x: hidden;
 
   @media (--phone) {
     margin-top: 20px;
   }
-
   @media (--tablet) {
     max-width: 660px;
   }
@@ -272,6 +272,9 @@ button, input, textarea {
   margin: 0 auto 20px 5vw;
   @media screen and (max-width: 1200px) {
     width: 60vw;
+  }
+  @media screen and (min-width: 1600px) {
+    margin-left: 0;
   }
   @media (--tablet) {
     max-width: 660px;

@@ -4,6 +4,9 @@
   text-align: left;
   padding: 0 0 20px 0;
   margin: 0 auto 20px 5vw;
+  @media screen and (min-width: 1600px) {
+    margin-left: 0;
+  }
 
   &:not(:last-of-type) {
     border-bottom: 1px solid var(--light-border-color);
