@@ -9,7 +9,7 @@ export default () => {
     const data = useStaticQuery(graphql`
         query {
             allMarkdownRemark(
-                filter: { fileAbsolutePath: { regex: "//posts//" } }
+                filter: { fileAbsolutePath: { regex: "//posts//" }, frontmatter: { published: { eq: true } } }
                 sort: { fields: [frontmatter___date], order: DESC }
             ) {
                 location: group(field: frontmatter___location) {

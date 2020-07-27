@@ -19,6 +19,7 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
   return graphql(`
     {
       allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "//posts//" }, frontmatter: { published: { eq: true } } }
         sort: { fields: [frontmatter___date], order: DESC }
         limit: 1000
       ) {
