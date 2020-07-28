@@ -7,7 +7,7 @@ coverImage: "../images/240Park-Penthouse.jpg"
 excerpt: ''
 tags: ["NYC"]
 location: "New York"
-type: "Apartmnet"
+type: "Apartment"
 ---
 
 ![penthouse](../images/240Park-Penthouse.jpg)
