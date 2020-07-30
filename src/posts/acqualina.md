@@ -2,7 +2,7 @@
 title: "The Mansions at Acqualina"
 published: true
 path: "/acqualina"
-date: "2020-07-25"
+date: "2020-07-26"
 coverImage: "../images/2-Palazzo_Del_Cielo.jpg"
 excerpt: ''
 tags: ["Miami"]
