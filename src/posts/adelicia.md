@@ -5,7 +5,7 @@ path: "/adelicia"
 date: "2020-07-29"
 coverImage: "../images/Adelicia1.jpg"
 excerpt: ''
-tags: ["Nashville"]
+tags: ["Nashville", "Apartment"]
 location: "Nashville"
 type: "Apartment"
 ---

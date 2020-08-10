@@ -5,7 +5,7 @@ path: "/carhart"
 date: "2020-07-23"
 coverImage: "../images/carhart-triplex-1.jpg"
 excerpt: ''
-tags: ["NYC", "Townhouse"]
+tags: ["New York", "Townhouse"]
 location: "New York"
 type: "Townhouse"
 ---

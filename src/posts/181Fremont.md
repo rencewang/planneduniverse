@@ -5,7 +5,7 @@ path: "/181fremont"
 date: "2020-07-20"
 coverImage: "../images/181Fremont-Amenities.jpg"
 excerpt: ''
-tags: ["SF", "Apartment"]
+tags: ["San Francisco", "Apartment"]
 location: "San Francisco"
 type: "Apartment"
 ---

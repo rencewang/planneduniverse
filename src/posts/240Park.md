@@ -5,7 +5,7 @@ path: "/240park"
 date: "2020-07-25"
 coverImage: "../images/240Park-Penthouse.jpg"
 excerpt: ''
-tags: ["NYC"]
+tags: ["New York", "Apartment"]
 location: "New York"
 type: "Apartment"
 ---
