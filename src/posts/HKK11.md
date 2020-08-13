@@ -1,7 +1,7 @@
 ---
 title: "K11 MUSEA Hong Kong"
 published: true
-path: "/taikoo-chengdu"
+path: "/k11-HK"
 date: "2020-08-07"
 coverImage: "../images/MUSEA1.jpg"
 excerpt: ''
