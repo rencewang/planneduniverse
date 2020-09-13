@@ -8,7 +8,7 @@ const postCSSMixins = require('postcss-mixins')
 module.exports = {
   siteMetadata: {
     title: `Planned Universe`,
-    description: `plans of all dimensions, contexts, and worlds`,
+    description: `Planned Universe: an initiative about plans of all dimensions, contexts, and worlds`,
     author: `@planneduniverse`,
     logo: {
       src: '',
