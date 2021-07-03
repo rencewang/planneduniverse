@@ -23,10 +23,10 @@ module.exports = {
       //   title: 'Archive',
       //   path: '/archive',
       // },
-      {
-        title: 'About',
-        path: '/about',
-      },
+      // {
+      //   title: 'About',
+      //   path: '/about',
+      // },
     ],
   },
   plugins: [
