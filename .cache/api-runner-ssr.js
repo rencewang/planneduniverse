@@ -1,11 +1,11 @@
 var plugins = [{
-      plugin: require('C:/Users/wangc/Documents/GitHub/fpworld/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
+      plugin: require('C:/Users/WANG/Documents/GitHub/fpworld/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
       options: {"plugins":[]},
     },{
-      plugin: require('C:/Users/wangc/Documents/GitHub/fpworld/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
+      plugin: require('C:/Users/WANG/Documents/GitHub/fpworld/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
       options: {"plugins":[],"name":"Planned Universe","short_name":"planned-universe","start_url":"/","background_color":"#292a2d","theme_color":"#292a2d","display":"minimal-ui","icon":"src/images/hello-icon.png","cache_busting_mode":"query","include_favicon":true,"legacy":true,"theme_color_in_head":true,"cacheDigest":"20d2ef53a71d2dd13985c679b0f8e708"},
     },{
-      plugin: require('C:/Users/wangc/Documents/GitHub/fpworld/node_modules/gatsby-plugin-google-analytics/gatsby-ssr'),
+      plugin: require('C:/Users/WANG/Documents/GitHub/fpworld/node_modules/gatsby-plugin-google-analytics/gatsby-ssr'),
       options: {"plugins":[],"trackingId":"UA-156829821-4","head":true},
     }]
 // During bootstrap, we write requires at top of this file which looks like:

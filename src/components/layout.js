@@ -20,10 +20,6 @@ const Layout = ({ children }) => {
           }
           logoText
           defaultTheme
-          mainMenu {
-            title
-            path
-          }
           showMenuItems
         }
       }
