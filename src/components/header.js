@@ -9,7 +9,7 @@ import style from '../styles/header.module.css'
 const Header = props => {
 
   const {
-    siteLogo,
+    // siteLogo,
     logoText,
     mainMenu,
     mainMenuItems,
