@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
+import useLocalStorage from 'use-local-storage'
 
 import Menu from './menu'
 import style from '../styles/header.module.css'
@@ -16,27 +17,33 @@ const Header = props => {
     defaultTheme,
   } = props
 
-  const defaultThemeState =
-    (typeof window !== 'undefined' && window.localStorage.getItem('theme')) ||
-    null
-  const [userTheme, changeTheme] = useState(defaultThemeState)
+  // const defaultThemeState =
+  //   (typeof window !== 'undefined' && window.localStorage.getItem('theme')) ||
+  //   null
+  // const [userTheme, changeTheme] = useState(defaultThemeState)
+  const defaultDark = (typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches) || null 
+  const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light')
+
   const [isMobileMenuVisible, toggleMobileMenu] = useState(false)
+
+  useEffect(() => {
+  }, [theme])
   
   const onChangeTheme = () => {
-    const opositeTheme =
-      (userTheme || defaultTheme) === 'light' ? 'dark' : 'light'
+    // console.log("hi")
+    // console.log(theme)
+    const opositeTheme = theme === 'light' ? 'dark' : 'light'
+    setTheme(opositeTheme)
 
-    changeTheme(opositeTheme)
-
-    typeof window !== 'undefined' &&
-      window.localStorage.setItem('theme', opositeTheme)
+    // typeof window !== 'undefined' &&
+    //   window.localStorage.setItem('theme', opositeTheme)
   }
   const onToggleMobileMenu = () => toggleMobileMenu(!isMobileMenuVisible)
 
   return (
     <>
       <Helmet>
-        <body className={(userTheme || defaultTheme) === 'light' ? 'light-theme' : 'dark-theme'}/>
+        <body data-theme={theme} className={theme === 'light' ? 'light-theme' : 'dark-theme'}/>
       </Helmet>
 
       <header className={style.header}>

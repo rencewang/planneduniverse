@@ -19,8 +19,8 @@ body {
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.54;
-  background-color: var(--light-background);
-  color: var(--light-color);
+  background-color: var(--background);
+  color: var(--color) !important;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   font-feature-settings: "liga", "tnum", "case", "calt", "zero", "ss01", "locl";
@@ -31,10 +31,10 @@ body {
     font-size: 1rem;
   }
 
-  &.dark-theme {
-    background-color: var(--dark-background);
-    color: var(--dark-color);
-  }
+  /* &.dark-theme {
+    background-color: var(--background);
+    color: var(--color) !important;
+  } */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -77,8 +77,8 @@ h4 {
   }
 }
 
-a {
-  color: inherit;
+a, a:visited, a:active, a:hover {
+  color: inherit !important;
 }
 
 img {
@@ -140,15 +140,11 @@ code {
   font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
   font-feature-settings: normal;
   font-weight: normal;
-  background: var(--light-background-secondary);
+  background: var(--background-secondary);
   padding: 1px 6px;
   margin: 0 2px;
   border-radius: 5px;
   font-size: .9rem;
-
-  .dark-theme & {
-    background: var(--dark-background-secondary);
-  }
 }
 
 pre {
@@ -200,20 +196,12 @@ table {
 }
 
 table, th, td {
-  border: 1px solid var(--light-color);
+  border: 1px solid var(--color);
   padding: 10px;
-
-  .dark-theme & {
-    border-color: var(--dark-color);
-  }
 }
 
 th {
-  background: var(--light-background-secondary);
-
-  .dark-theme & {
-    background: var(--dark-background-secondary);
-  }
+  background: var(--background-secondary);
 }
 
 ul, ol {
@@ -286,12 +274,8 @@ button, input, textarea {
 hr {
   width: 100%;
   border: none;
-  background: var(--light-border-color);
+  background: var(--border-color);
   height: 1px;
-
-  .dark-theme & {
-    background: var(--dark-border-color);
-  }
 }
 
 .infoBanner {
@@ -302,10 +286,7 @@ hr {
   border-radius: 10px;
   width: 70vw;
   max-width: 750px;
-  background: var(--light-background-secondary);
-  .dark-theme & {
-    background: var(--dark-background-secondary);
-  }
+  background: var(--background-secondary);
 
   span {
     font-weight: bold;
@@ -385,8 +366,8 @@ footer {
     text-align: center;
   }
 
-  background: linear-gradient( rgba(255,255,255,0) 10%, var(--light-header-background));
-  :global .dark-theme :local & {
-    background: linear-gradient( rgba(0,0,0,0) 10%, var(--dark-header-background));
-  }
+  background: linear-gradient( rgba(255,255,255,0) 10%, var(--header-background));
+  /* :global .dark-theme :local & {
+    background: linear-gradient( rgba(0,0,0,0) 10%, var(--header-background));
+  } */
 }

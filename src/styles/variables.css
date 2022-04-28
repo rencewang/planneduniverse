@@ -1,19 +1,11 @@
 :root {
   /* light theme color */
-  --light-background: #fff;
-  --light-background-secondary: #eaeaea;
-  --light-header-background: #caccce;
-  --light-color: #222;
-  --light-color-secondary: #999;
-  --light-border-color: #dcdcdc;
-
-  /* dark theme colors */
-  --dark-background: #292a2d;
-  --dark-background-secondary: #3b3d42;
-  --dark-header-background: #191a1a;
-  --dark-color: #d2d2da;
-  --dark-color-secondary: #73747b;
-  --dark-border-color: #4a4b50;
+  --background: #fff;
+  --background-secondary: #eaeaea;
+  --header-background: #caccce;
+  --color: #222;
+  --color-secondary: #999;
+  --border-color: #dcdcdc;
 
   /* variables for js, must be the same as these in @custom-media queries */
   --phoneWidth: (max-width: 684px);
@@ -21,6 +13,16 @@
 
   /* fonts used */
   --logo-font: "degular", sans-serif;
+}
+
+[data-theme='dark'] {
+  /* dark theme colors */
+  --background: #292a2d;
+  --background-secondary: #3b3d42;
+  --header-background: #191a1a;
+  --color: #d2d2da;
+  --color-secondary: #73747b;
+  --border-color: #4a4b50;
 }
 
 @custom-media --phone (width < 684px);

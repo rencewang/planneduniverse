@@ -30,9 +30,9 @@ const Menu = ({
 }) => {
   return (
     <>
-      <div className={style.mobileMenuContainer}>
+      {/* <div className={style.mobileMenuContainer}>
         <>
-          {/* {isMobileMenuVisible ? (
+          {isMobileMenuVisible ? (
             <>
               <ul className={style.mobileMenu}>
                 <MainMenu mainMenu={mainMenu} isMobileMenu />
@@ -42,7 +42,7 @@ const Menu = ({
                 className={style.mobileMenuOverlay}
               />
             </>
-          ) : null} */}
+          ) : null}
           <button
             className={style.menuTrigger}
             style={{ color: 'inherit' }}
@@ -53,7 +53,7 @@ const Menu = ({
             <Icon style={{ cursor: 'pointer' }} size={24} d={menuIcon} />
           </button>
         </>
-      </div>
+      </div> */}
 
       {/* <div className={style.desktopMenuContainer}>
         <ul className={style.menu}>
