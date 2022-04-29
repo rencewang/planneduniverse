@@ -9,10 +9,10 @@
   }
 
   &:not(:last-of-type) {
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--light-border-color);
 
     :global .dark-theme :local & {
-      border-color: var(--border-color);
+      border-color: var(--dark-border-color);
     }
   }
 
