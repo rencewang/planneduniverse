@@ -30,7 +30,7 @@ export default class Search extends Component {
       <div className={style.search}>
 
         <div className={style.inputbox}>
-          <div>Search:</div><input id="searchinput" type="text" autoComplete="off" value={this.state.query} onChange={this.search} />
+          <div>Search for:</div><input id="searchinput" type="text" autocomplete="off" value={this.state.query} onChange={this.search} />
         </div>
 
         <div id="results" className={style.searchresults}>

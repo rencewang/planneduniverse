@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
@@ -10,7 +10,7 @@ import style from '../styles/header.module.css'
 const Header = props => {
 
   const {
-    siteLogo,
+    // siteLogo,
     logoText,
     mainMenu,
     mainMenuItems,
@@ -26,6 +26,9 @@ const Header = props => {
 
   const [isMobileMenuVisible, toggleMobileMenu] = useState(false)
 
+  useEffect(() => {
+  }, [theme])
+  
   const onChangeTheme = () => {
     // console.log("hi")
     // console.log(theme)
