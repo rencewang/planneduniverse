@@ -14,40 +14,6 @@ const Index = ({ data, pageContext: { nextPagePath, previousPagePath } }) => {
     allMarkdownRemark: { edges: posts },
   } = data
 
-  // let isMouseHover = false
-  // const test = document.getElementById("scroll")
-
-  // useEffect(()=>{
-  //   test.addEventListener("mouseleave", function (event) {
-  //     isMouseHover = false
-  //     // event.target.textContent = "mouse out"
-  //     console.log(isMouseHover)
-  //   }, false)
-  //   test.addEventListener("mouseover", function (event) {
-  //     isMouseHover = true
-  //     // event.target.textContent = "mouse in"
-  //     console.log(isMouseHover)
-  //   }, false)
-  //   document.addEventListener('wheel', horizontalScroll, {passive: false})
-  //   document.addEventListener('mousewheel', horizontalScroll, {passive: false})
-  //   if(!isMouseHover) {
-  //     document.removeEventListener('wheel', horizontalScroll, {passive: false})
-  //     document.removeEventListener('mousewheel', horizontalScroll, {passive: false})
-  //   }
-  // })
-
-  // const horizontalScroll = e => {
-  //   if(isMouseHover) {
-  //     e.preventDefault()
-  //     var container = document.getElementById('scroll')
-  //     var containerScrollPosition = document.getElementById('scroll').scrollLeft
-  //     container.scrollTo({
-  //         top: 0,
-  //         left: containerScrollPosition + e.deltaY
-  //     })
-  //   }
-  // }
-
   return (
     <>
       <SEO />

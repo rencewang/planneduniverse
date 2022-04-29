@@ -26,23 +26,15 @@ const Layout = ({ children }) => {
     }
   `)
   const {
-    title,
-    logo,
     logoText,
     defaultTheme,
-    mainMenu,
-    showMenuItems,
   } = data.site.siteMetadata
 
   return (
     <div className="container">
       <Header
-        siteTitle={title}
-        siteLogo={logo}
         logoText={logoText}
         defaultTheme={defaultTheme}
-        mainMenu={mainMenu}
-        mainMenuItems={showMenuItems}
       />
       <div className="content">{children}</div>
       <Sidebar />

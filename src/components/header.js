@@ -7,12 +7,8 @@ import Menu from './menu'
 import style from '../styles/header.module.css'
 
 const Header = props => {
-
   const {
-    // siteLogo,
     logoText,
-    mainMenu,
-    mainMenuItems,
     defaultTheme,
   } = props
 
@@ -20,7 +16,6 @@ const Header = props => {
     (typeof window !== 'undefined' && window.localStorage.getItem('theme')) ||
     null
   const [userTheme, changeTheme] = useState(defaultThemeState)
-  const [isMobileMenuVisible, toggleMobileMenu] = useState(false)
   
   const onChangeTheme = () => {
     const opositeTheme =
@@ -31,7 +26,6 @@ const Header = props => {
     typeof window !== 'undefined' &&
       window.localStorage.setItem('theme', opositeTheme)
   }
-  const onToggleMobileMenu = () => toggleMobileMenu(!isMobileMenuVisible)
 
   return (
     <>
@@ -51,10 +45,6 @@ const Header = props => {
 
           <span className={style.right}>
             <Menu
-              mainMenu={mainMenu}
-              mainMenuItems={mainMenuItems}
-              isMobileMenuVisible={isMobileMenuVisible}
-              onToggleMobileMenu={onToggleMobileMenu}
               onChangeTheme={onChangeTheme}
             />
           </span>
@@ -66,16 +56,8 @@ const Header = props => {
 }
 
 Header.propTypes = {
-  siteLogo: PropTypes.object,
   logoText: PropTypes.string,
   defaultTheme: PropTypes.string,
-  mainMenu: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      path: PropTypes.string,
-    }),
-  ),
-  mainMenuItems: PropTypes.number,
 }
 
 export default Header
