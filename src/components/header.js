@@ -1,41 +1,43 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
-import { Helmet } from 'react-helmet'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
+import { Helmet } from 'react-helmet';
 
-import Menu from './menu'
-import style from '../styles/header.module.css'
+import Menu from './menu';
+import style from '../styles/header.module.css';
 
-const Header = props => {
-  const {
-    logoText,
-    defaultTheme,
-  } = props
+const Header = (props) => {
+  const { logoText, defaultTheme } = props;
 
   const defaultThemeState =
     (typeof window !== 'undefined' && window.localStorage.getItem('theme')) ||
-    null
-  const [userTheme, changeTheme] = useState(defaultThemeState)
-  
+    null;
+  const [userTheme, changeTheme] = useState(defaultThemeState);
+
   const onChangeTheme = () => {
     const opositeTheme =
-      (userTheme || defaultTheme) === 'light' ? 'dark' : 'light'
+      (userTheme || defaultTheme) === 'light' ? 'dark' : 'light';
 
-    changeTheme(opositeTheme)
+    changeTheme(opositeTheme);
 
     typeof window !== 'undefined' &&
-      window.localStorage.setItem('theme', opositeTheme)
-  }
+      window.localStorage.setItem('theme', opositeTheme);
+  };
 
   return (
     <>
       <Helmet>
-        <body className={(userTheme || defaultTheme) === 'light' ? 'light-theme' : 'dark-theme'}/>
+        <body
+          className={
+            (userTheme || defaultTheme) === 'light'
+              ? 'light-theme'
+              : 'dark-theme'
+          }
+        />
       </Helmet>
 
       <header className={style.header}>
         <div className={style.inner}>
-
           <Link to="/">
             <div className={style.logo}>
               <span className={style.text}>{logoText}</span>
@@ -44,20 +46,17 @@ const Header = props => {
           </Link>
 
           <span className={style.right}>
-            <Menu
-              onChangeTheme={onChangeTheme}
-            />
+            <Menu onChangeTheme={onChangeTheme} />
           </span>
-          
         </div>
       </header>
     </>
-  )
-}
+  );
+};
 
 Header.propTypes = {
   logoText: PropTypes.string,
   defaultTheme: PropTypes.string,
-}
+};
 
-export default Header
+export default Header;

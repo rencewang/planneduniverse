@@ -1,10 +1,3 @@
-const postCssPresetEnv = require(`postcss-preset-env`)
-const postCSSNested = require('postcss-nested')
-const postCSSUrl = require('postcss-url')
-const postCSSImports = require('postcss-import')
-const cssnano = require('cssnano')
-const postCSSMixins = require('postcss-mixins')
-
 module.exports = {
   siteMetadata: {
     title: `Planned Universe`,
@@ -18,13 +11,11 @@ module.exports = {
     defaultTheme: 'light',
     postsPerPage: 5,
     showMenuItems: 2,
-    mainMenu: [
-    ],
+    mainMenu: [],
   },
   plugins: [
     `gatsby-plugin-sass`,
     `babel-preset-gatsby`,
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -46,38 +37,13 @@ module.exports = {
         path: `${__dirname}/src/pages`,
       },
     },
-    {
-      resolve: `gatsby-plugin-postcss`,
-      options: {
-        postCssPlugins: [
-          postCSSUrl(),
-          postCSSImports(),
-          postCSSMixins(),
-          postCSSNested(),
-          postCssPresetEnv({
-            importFrom: 'src/styles/variables.css',
-            stage: 1,
-            preserve: false,
-          }),
-          cssnano({
-            preset: 'default',
-          }),
-        ],
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          {
-            resolve: 'gatsby-remark-embed-video',
-            options: {
-              related: false,
-              noIframeBorder: true,
-            },
-          },
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -110,30 +76,23 @@ module.exports = {
         icon: `src/images/hello-icon.png`,
       },
     },
-    {    
+    {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
         fields: [`title`, `tags`, `type`, `location`],
         resolvers: {
           // For any node of type MarkdownRemark, list how to resolve the fields` values
           MarkdownRemark: {
-            title: node => node.frontmatter.title,
-            tags: node => node.frontmatter.tags,
-            location: node => node.frontmatter.location,
-            type: node => node.frontmatter.type,
-            path: node => node.frontmatter.path,
+            title: (node) => node.frontmatter.title,
+            tags: (node) => node.frontmatter.tags,
+            location: (node) => node.frontmatter.location,
+            type: (node) => node.frontmatter.type,
+            path: (node) => node.frontmatter.path,
           },
         },
         // Optional filter to limit indexed nodes
-        filter: (node, getNode) => node.frontmatter.tags !== "exempt",
+        filter: (node, getNode) => node.frontmatter.tags !== 'exempt',
       },
     },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: "UA-156829821-4",
-        head: true,
-      }
-    },
   ],
-}
+};

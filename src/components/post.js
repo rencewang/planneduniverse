@@ -1,11 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
-// import Img from 'gatsby-image'
-import Navigation from './navigation'
-import { toKebabCase } from '../helpers'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
+import Navigation from './navigation';
+import { toKebabCase } from '../helpers';
 
-import style from '../styles/post.module.css'
+import style from '../styles/post.module.css';
 
 const Post = ({
   title,
@@ -20,43 +19,41 @@ const Post = ({
   previousPost,
   nextPost,
 }) => {
-  const previousPath = previousPost && previousPost.frontmatter.path
-  const previousLabel = previousPost && previousPost.frontmatter.title
-  const nextPath = nextPost && nextPost.frontmatter.path
-  const nextLabel = nextPost && nextPost.frontmatter.title
+  const previousPath = previousPost && previousPost.frontmatter.path;
+  const previousLabel = previousPost && previousPost.frontmatter.title;
+  const nextPath = nextPost && nextPost.frontmatter.path;
+  const nextLabel = nextPost && nextPost.frontmatter.title;
 
   return (
     <div className={style.post}>
       <div className={style.postContent}>
-        
         <h1 className={style.title}>
           {excerpt ? <Link to={path}>{title}</Link> : title}
         </h1>
 
         <div className={style.meta}>
           {location ? (
-              <div className={style.tags}>
-                  <Link to={`/place/${toKebabCase(location).toLowerCase()}/`} key={toKebabCase(location)}>
-                      <span className={style.tag}>{location}</span>
-                  </Link>
-              </div>
+            <div className={style.tags}>
+              <Link
+                to={`/place/${toKebabCase(location).toLowerCase()}/`}
+                key={toKebabCase(location)}
+              >
+                <span className={style.tag}>{location}</span>
+              </Link>
+            </div>
           ) : null}
 
           {type ? (
-              <div className={style.tags}>
-                  <Link to={`/type/${toKebabCase(type).toLowerCase()}/`} key={toKebabCase(type)}>
-                      <span className={style.tag}>{type}</span>
-                  </Link>
-              </div>
+            <div className={style.tags}>
+              <Link
+                to={`/type/${toKebabCase(type).toLowerCase()}/`}
+                key={toKebabCase(type)}
+              >
+                <span className={style.tag}>{type}</span>
+              </Link>
+            </div>
           ) : null}
         </div>
-
-        {/* {coverImage && (
-          <Img
-            fluid={coverImage.childImageSharp.fluid}
-            className={style.coverImage}
-          />
-        )} */}
 
         {excerpt ? (
           <>
@@ -67,7 +64,10 @@ const Post = ({
           </>
         ) : (
           <>
-            <div className={style.markdowncontent} dangerouslySetInnerHTML={{ __html: html }} />
+            <div
+              className={style.markdowncontent}
+              dangerouslySetInnerHTML={{ __html: html }}
+            />
             <Navigation
               previousPath={previousPath}
               previousLabel={previousLabel}
@@ -78,8 +78,8 @@ const Post = ({
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
 Post.propTypes = {
   title: PropTypes.string,
@@ -93,6 +93,6 @@ Post.propTypes = {
   type: PropTypes.string,
   previousPost: PropTypes.object,
   nextPost: PropTypes.object,
-}
+};
 
-export default Post
+export default Post;
