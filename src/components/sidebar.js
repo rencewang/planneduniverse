@@ -3,7 +3,7 @@ import kebabCase from 'lodash/kebabCase';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 
 import Search from './search';
-import '../styles/sidebar.css';
+import '../styles/sidebar.scss';
 
 export default () => {
   const data = useStaticQuery(graphql`

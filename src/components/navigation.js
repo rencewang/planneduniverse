@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 
-import '../styles/navigation.css';
+import '../styles/navigation.scss';
 
 const Navigation = ({ nextPath, previousPath, nextLabel, previousLabel }) =>
   previousPath || nextPath ? (

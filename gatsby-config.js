@@ -7,10 +7,8 @@ module.exports = {
       src: '',
       alt: '',
     },
-    logoText: 'Planned Universe',
-    defaultTheme: 'light',
+    logoText: 'Metadome',
     postsPerPage: 5,
-    showMenuItems: 2,
     mainMenu: [],
   },
   plugins: [
@@ -51,19 +49,20 @@ module.exports = {
               quality: 100,
             },
           },
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              classPrefix: 'language-',
-              inlineCodeMarker: null,
-              aliases: {},
-              showLineNumbers: false,
-              noInlineHighlight: false,
-            },
-          },
+          // {
+          //   resolve: `gatsby-remark-prismjs`,
+          //   options: {
+          //     classPrefix: 'language-',
+          //     inlineCodeMarker: null,
+          //     aliases: {},
+          //     showLineNumbers: false,
+          //     noInlineHighlight: false,
+          //   },
+          // },
         ],
       },
     },
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

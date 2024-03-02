@@ -1,10 +1,9 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 
-import PostLink from '../components/postlink';
 import Layout from '../components/layout';
 
-import '../styles/archive.scss';
+import '../styles/pages.scss';
 
 const Archive = ({
   data: {
@@ -13,7 +12,20 @@ const Archive = ({
 }) => {
   const Posts = edges
     .filter((edge) => !!edge.node.frontmatter.date)
-    .map((edge) => <PostLink key={edge.node.id} post={edge.node} />);
+    .map(({ node: post }) => {
+      return (
+        <div key={post.id}>
+          <Link to={post.frontmatter.path}>
+            <div className="archive-title">{post.frontmatter.title}</div>
+          </Link>
+          <div className="archive-details">
+            on {post.frontmatter.date} <br />
+            in {post.frontmatter.location} <span> </span>
+            of {post.frontmatter.type}
+          </div>
+        </div>
+      );
+    });
 
   return (
     <Layout>

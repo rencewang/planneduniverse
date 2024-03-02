@@ -1,3 +1,5 @@
+@import 'variables.scss';
+
 .navigation {
   display: flex;
   align-items: center;
@@ -11,17 +13,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--light-background-secondary);
+  background: $lightBackgroundSecondary;
   font-size: 1rem;
   font-weight: bold;
   border-radius: 8px;
   /* max-width: 40%; */
   cursor: pointer;
   appearance: none;
-
-  :global .dark-theme :local & {
-    background: var(--dark-background-secondary);
-  }
 
   + .button {
     margin-left: 10px;

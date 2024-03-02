@@ -6,7 +6,7 @@ import Layout from '../components/layout';
 import Postcard from '../components/postcard';
 import Navigation from '../components/navigation';
 
-import '../styles/layout.css';
+import '../styles/layout.scss';
 
 const Tags = ({
   data,
@@ -20,7 +20,7 @@ const Tags = ({
     <>
       <Seo />
       <Layout>
-        <div className="infoBanner">
+        <div className="category-title">
           Posts with tag: <span>#{tag}</span>
         </div>
 

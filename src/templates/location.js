@@ -6,7 +6,7 @@ import Layout from '../components/layout';
 import Postcard from '../components/postcard';
 import Navigation from '../components/navigation';
 
-import '../styles/layout.css';
+import '../styles/layout.scss';
 
 const Locations = ({
   data,
@@ -20,7 +20,7 @@ const Locations = ({
     <>
       <Seo />
       <Layout>
-        <div className="infoBanner">
+        <div className="category-title">
           Plans in: <span>{location}</span>
         </div>
 

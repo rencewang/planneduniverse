@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-import Navigation from './navigation';
 import { toKebabCase } from '../helpers';
 
-import '../styles/post.css';
+import '../styles/post.scss';
 
 const Post = ({
   title,
@@ -31,7 +30,7 @@ const Post = ({
           {excerpt ? <Link to={path}>{title}</Link> : title}
         </h1>
 
-        <div className="meta">
+        <div className="metadata">
           {location ? (
             <div className="tags">
               <Link
@@ -67,12 +66,6 @@ const Post = ({
             <div
               className="markdowncontent"
               dangerouslySetInnerHTML={{ __html: html }}
-            />
-            <Navigation
-              previousPath={previousPath}
-              previousLabel={previousLabel}
-              nextPath={nextPath}
-              nextLabel={nextLabel}
             />
           </>
         )}
