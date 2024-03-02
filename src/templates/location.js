@@ -1,12 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import SEO from '../components/seo'
-import Layout from '../components/layout'
-import Postcard from '../components/postcard'
-import Navigation from '../components/navigation'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
+import SEO from '../components/seo';
+import Layout from '../components/layout';
+import Postcard from '../components/postcard';
+import Navigation from '../components/navigation';
 
-import '../styles/layout.css'
+import '../styles/layout.css';
 
 const Locations = ({
   data,
@@ -14,7 +14,7 @@ const Locations = ({
 }) => {
   const {
     allMarkdownRemark: { edges: posts },
-  } = data
+  } = data;
 
   return (
     <>
@@ -25,51 +25,50 @@ const Locations = ({
         </div>
 
         <div className="index-container">
-        {posts.map(({ node }) => {
-          const {
-            id,
-            excerpt: autoExcerpt,
-            frontmatter: {
-              title,
-              date,
-              path,
-              author,
-              coverImage,
-              excerpt,
-              tags,
-              location,
-              type
-            },
-          } = node
+          {posts.map(({ node }) => {
+            const {
+              id,
+              excerpt: autoExcerpt,
+              frontmatter: {
+                title,
+                date,
+                path,
+                author,
+                coverImage,
+                excerpt,
+                tags,
+                location,
+                type,
+              },
+            } = node;
 
-          return (
-            <Postcard
-              key={id}
-              title={title}
-              date={date}
-              path={path}
-              author={author}
-              tags={tags}
-              location={location}
-              type={type}
-              coverImage={coverImage}
-              excerpt={excerpt || autoExcerpt}
-            />
-          )
-        })}
+            return (
+              <Postcard
+                key={id}
+                title={title}
+                date={date}
+                path={path}
+                author={author}
+                tags={tags}
+                location={location}
+                type={type}
+                coverImage={coverImage}
+                excerpt={excerpt || autoExcerpt}
+              />
+            );
+          })}
 
-        <Navigation
-          previousPath={previousPagePath}
-          previousLabel="Newer posts"
-          nextPath={nextPagePath}
-          nextLabel="Older posts"
-        />
+          <Navigation
+            previousPath={previousPagePath}
+            previousLabel="Newer posts"
+            nextPath={nextPagePath}
+            nextLabel="Older posts"
+          />
         </div>
-
       </Layout>
     </>
-  )
-}
+  );
+};
 
 Locations.propTypes = {
   data: PropTypes.object.isRequired,
@@ -77,13 +76,13 @@ Locations.propTypes = {
     nextPagePath: PropTypes.string,
     previousPagePath: PropTypes.string,
   }),
-}
+};
 
 export const postsQuery = graphql`
-  query($limit: Int!, $skip: Int!, $location: String!) {
+  query ($limit: Int!, $skip: Int!, $location: String!) {
     allMarkdownRemark(
       filter: { frontmatter: { location: { in: [$location] } } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
       limit: $limit
       skip: $skip
     ) {
@@ -112,6 +111,6 @@ export const postsQuery = graphql`
       }
     }
   }
-`
+`;
 
-export default Locations
+export default Locations;

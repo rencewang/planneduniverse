@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
 import Menu from './menu';
-import style from '../styles/header.module.css';
+import '../styles/header.module.css';
 
 const Header = (props) => {
   const { logoText, defaultTheme } = props;
@@ -36,16 +36,16 @@ const Header = (props) => {
         />
       </Helmet>
 
-      <header className={style.header}>
-        <div className={style.inner}>
+      <header className="header">
+        <div className="inner">
           <Link to="/">
-            <div className={style.logo}>
-              <span className={style.text}>{logoText}</span>
-              <span className={style.cursor} />
+            <div className="logo">
+              <span className="text">{logoText}</span>
+              <span className="cursor" />
             </div>
           </Link>
 
-          <span className={style.right}>
+          <span className="right">
             <Menu onChangeTheme={onChangeTheme} />
           </span>
         </div>

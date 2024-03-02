@@ -76,23 +76,23 @@ module.exports = {
         icon: `src/images/hello-icon.png`,
       },
     },
-    {
-      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
-      options: {
-        fields: [`title`, `tags`, `type`, `location`],
-        resolvers: {
-          // For any node of type MarkdownRemark, list how to resolve the fields` values
-          MarkdownRemark: {
-            title: (node) => node.frontmatter.title,
-            tags: (node) => node.frontmatter.tags,
-            location: (node) => node.frontmatter.location,
-            type: (node) => node.frontmatter.type,
-            path: (node) => node.frontmatter.path,
-          },
-        },
-        // Optional filter to limit indexed nodes
-        filter: (node, getNode) => node.frontmatter.tags !== 'exempt',
-      },
-    },
+    // {
+    //   resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+    //   options: {
+    //     fields: [`title`, `tags`, `type`, `location`],
+    //     resolvers: {
+    //       // For any node of type MarkdownRemark, list how to resolve the fields` values
+    //       MarkdownRemark: {
+    //         title: (node) => node.frontmatter.title,
+    //         tags: (node) => node.frontmatter.tags,
+    //         location: (node) => node.frontmatter.location,
+    //         type: (node) => node.frontmatter.type,
+    //         path: (node) => node.frontmatter.path,
+    //       },
+    //     },
+    //     // Optional filter to limit indexed nodes
+    //     filter: (node, getNode) => node.frontmatter.tags !== 'exempt',
+    //   },
+    // },
   ],
 };

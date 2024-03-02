@@ -1,68 +1,66 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 
-import SEO from '../components/seo'
-import Layout from '../components/layout'
-import Postcard from '../components/postcard'
-import Navigation from '../components/navigation'
+import SEO from '../components/seo';
+import Layout from '../components/layout';
+import Postcard from '../components/postcard';
+import Navigation from '../components/navigation';
 
-import '../styles/layout.css'
+import '../styles/layout.css';
 
 const Index = ({ data, pageContext: { nextPagePath, previousPagePath } }) => {
   const {
     allMarkdownRemark: { edges: posts },
-  } = data
+  } = data;
 
   return (
     <>
       <SEO />
       <Layout>
-
         <div className="index-container">
-        {posts.map(({ node }) => {
-        const {
-          id,
-          excerpt: autoExcerpt,
-          frontmatter: {
-            title,
-            date,
-            path,
-            coverImage,
-            excerpt,
-            tags,
-            location,
-            type,
-          },
-        } = node
+          {posts.map(({ node }) => {
+            const {
+              id,
+              excerpt: autoExcerpt,
+              frontmatter: {
+                title,
+                date,
+                path,
+                coverImage,
+                excerpt,
+                tags,
+                location,
+                type,
+              },
+            } = node;
 
-        return (
-          <Postcard
-            key={id}
-            title={title}
-            date={date}
-            path={path}
-            coverImage={coverImage}
-            tags={tags}
-            location={location}
-            type={type}
-            excerpt={excerpt || autoExcerpt}
+            return (
+              <Postcard
+                key={id}
+                title={title}
+                date={date}
+                path={path}
+                coverImage={coverImage}
+                tags={tags}
+                location={location}
+                type={type}
+                excerpt={excerpt || autoExcerpt}
+              />
+            );
+          })}
+
+          <Navigation
+            previousPath={previousPagePath}
+            previousLabel="Newer posts"
+            nextPath={nextPagePath}
+            nextLabel="Older posts"
           />
-        )
-        })}
-
-        <Navigation
-          previousPath={previousPagePath}
-          previousLabel="Newer posts"
-          nextPath={nextPagePath}
-          nextLabel="Older posts"
-        />
         </div>
-
       </Layout>
     </>
-  )
-}
+  );
+};
 
 Index.propTypes = {
   data: PropTypes.object.isRequired,
@@ -70,13 +68,16 @@ Index.propTypes = {
     nextPagePath: PropTypes.string,
     previousPagePath: PropTypes.string,
   }),
-}
+};
 
 export const postsQuery = graphql`
-  query($limit: Int!, $skip: Int!) {
+  query ($limit: Int!, $skip: Int!) {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "//posts//" }, frontmatter: { published: { eq: true } } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      filter: {
+        fileAbsolutePath: { regex: "//posts//" }
+        frontmatter: { published: { eq: true } }
+      }
+      sort: { frontmatter: { date: DESC } }
       limit: $limit
       skip: $skip
     ) {
@@ -94,9 +95,7 @@ export const postsQuery = graphql`
             type
             coverImage {
               childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(layout: CONSTRAINED, width: 800)
               }
             }
           }
@@ -104,6 +103,6 @@ export const postsQuery = graphql`
       }
     }
   }
-`
+`;
 
-export default Index
+export default Index;

@@ -1,26 +1,29 @@
-const { paginate } = require('gatsby-awesome-pagination')
-const { forEach, uniq, filter, not, isNil, flatMap } = require('rambdax')
-const path = require('path')
-const { toKebabCase } = require('./src/helpers')
+const { paginate } = require('gatsby-awesome-pagination');
+const { forEach, uniq, filter, not, isNil, flatMap } = require('rambdax');
+const path = require('path');
+const { toKebabCase } = require('./src/helpers');
 
-const pageTypeRegex = /src\/(.*?)\//
-const getType = node => node.fileAbsolutePath.match(pageTypeRegex)[1]
+const pageTypeRegex = /src\/(.*?)\//;
+const getType = (node) => node.fileAbsolutePath.match(pageTypeRegex)[1];
 
-const pageTemplate = path.resolve(`./src/templates/page.js`)
-const indexTemplate = path.resolve(`./src/templates/index.js`)
-const tagsTemplate = path.resolve(`./src/templates/tags.js`)
-const locationTemplate = path.resolve(`./src/templates/location.js`)
-const typeTemplate = path.resolve(`./src/templates/type.js`)
+const pageTemplate = path.resolve(`./src/templates/page.js`);
+const indexTemplate = path.resolve(`./src/templates/index.js`);
+const tagsTemplate = path.resolve(`./src/templates/tags.js`);
+const locationTemplate = path.resolve(`./src/templates/location.js`);
+const typeTemplate = path.resolve(`./src/templates/type.js`);
 
 exports.createPages = ({ actions, graphql, getNodes }) => {
-  const { createPage } = actions
-  const allNodes = getNodes()
+  const { createPage } = actions;
+  const allNodes = getNodes();
 
   return graphql(`
     {
       allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "//posts//" }, frontmatter: { published: { eq: true } } }
-        sort: { fields: [frontmatter___date], order: DESC }
+        filter: {
+          fileAbsolutePath: { regex: "//posts//" }
+          frontmatter: { published: { eq: true } }
+        }
+        sort: { frontmatter: { date: DESC } }
         limit: 1000
       ) {
         edges {
@@ -42,28 +45,28 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
         }
       }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
-      return Promise.reject(result.errors)
+      return Promise.reject(result.errors);
     }
 
     const {
       allMarkdownRemark: { edges: markdownPages },
       site: { siteMetadata },
-    } = result.data
+    } = result.data;
 
     const sortedPages = markdownPages.sort((pageA, pageB) => {
-      const typeA = getType(pageA.node)
-      const typeB = getType(pageB.node)
+      const typeA = getType(pageA.node);
+      const typeB = getType(pageB.node);
 
-      return (typeA > typeB) - (typeA < typeB)
-    })
+      return (typeA > typeB) - (typeA < typeB);
+    });
 
     const posts = allNodes.filter(
       ({ internal, fileAbsolutePath }) =>
         internal.type === 'MarkdownRemark' &&
-        fileAbsolutePath.indexOf('/posts/') !== -1,
-    )
+        fileAbsolutePath.indexOf('/posts/') !== -1
+    );
 
     // Create posts index with pagination
     paginate({
@@ -72,16 +75,16 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
       component: indexTemplate,
       itemsPerPage: siteMetadata.postsPerPage,
       pathPrefix: '/',
-    })
+    });
 
     // Create each markdown page and post
     forEach(({ node }, index) => {
-      const previous = index === 0 ? null : sortedPages[index - 1].node
+      const previous = index === 0 ? null : sortedPages[0].node;
       const next =
-        index === sortedPages.length - 1 ? null : sortedPages[index + 1].node
-      const isNextSameType = getType(node) === (next && getType(next))
+        index === sortedPages.length - 1 ? null : sortedPages[0].node;
+      const isNextSameType = getType(node) === (next && getType(next));
       const isPreviousSameType =
-        getType(node) === (previous && getType(previous))
+        getType(node) === (previous && getType(previous));
 
       createPage({
         path: node.frontmatter.path,
@@ -91,20 +94,25 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
           next: isNextSameType ? next : null,
           previous: isPreviousSameType ? previous : null,
         },
-      })
-    }, sortedPages)
+      });
+    }, sortedPages);
 
     // Create tag pages
-    const tags = filter(
-      tag => not(isNil(tag)),
-      uniq(flatMap(post => post.frontmatter.tags, posts)),
-    )
+    const tags = [
+      ...new Set(
+        posts.flatMap((post) => post.frontmatter.tags || []).filter(Boolean)
+      ),
+    ];
+    // const tags = filter(
+    //   (tag) => not(isNil(tag)),
+    //   uniq(flatMap((post) => post.frontmatter.tags, posts))
+    // );
 
-    forEach(tag => {
+    forEach((tag) => {
       const postsWithTag = posts.filter(
-        post =>
-          post.frontmatter.tags && post.frontmatter.tags.indexOf(tag) !== -1,
-      )
+        (post) =>
+          post.frontmatter.tags && post.frontmatter.tags.indexOf(tag) !== -1
+      );
 
       paginate({
         createPage,
@@ -115,20 +123,26 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
         context: {
           tag,
         },
-      })
-    }, tags)
+      });
+    }, tags);
 
     // Create location pages
-    const location = filter(
-      location => not(isNil(location)),
-      uniq(flatMap(post => post.frontmatter.location, posts)),
-    )
+    const location = [
+      ...new Set(
+        posts.flatMap((post) => post.frontmatter.location || []).filter(Boolean)
+      ),
+    ];
+    // const location = filter(
+    //   (location) => not(isNil(location)),
+    //   uniq(flatMap((post) => post.frontmatter.location, posts))
+    // );
 
-    forEach(location => {
+    forEach((location) => {
       const postsWithLocation = posts.filter(
-        post =>
-          post.frontmatter.location && post.frontmatter.location.indexOf(location) !== -1,
-      )
+        (post) =>
+          post.frontmatter.location &&
+          post.frontmatter.location.indexOf(location) !== -1
+      );
 
       paginate({
         createPage,
@@ -139,20 +153,25 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
         context: {
           location,
         },
-      })
-    }, location)
+      });
+    }, location);
 
     // Create type pages
-    const types = filter(
-      type => not(isNil(type)),
-      uniq(flatMap(post => post.frontmatter.type, posts)),
-    )
+    const types = [
+      ...new Set(
+        posts.flatMap((post) => post.frontmatter.type || []).filter(Boolean)
+      ),
+    ];
+    // const types = filter(
+    //   (type) => not(isNil(type)),
+    //   uniq(flatMap((post) => post.frontmatter.type, posts))
+    // );
 
-    forEach(type => {
+    forEach((type) => {
       const postsWithType = posts.filter(
-        post =>
-          post.frontmatter.type && post.frontmatter.type.indexOf(type) !== -1,
-      )
+        (post) =>
+          post.frontmatter.type && post.frontmatter.type.indexOf(type) !== -1
+      );
 
       paginate({
         createPage,
@@ -163,20 +182,20 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
         context: {
           type,
         },
-      })
-    }, types)
+      });
+    }, types);
 
     return {
       sortedPages,
       tags,
       location,
       types,
-    }
-  })
-}
+    };
+  });
+};
 
 exports.sourceNodes = ({ actions }) => {
-  const { createTypes } = actions
+  const { createTypes } = actions;
   const typeDefs = `
     type MarkdownRemark implements Node {
       frontmatter: Frontmatter!
@@ -191,6 +210,6 @@ exports.sourceNodes = ({ actions }) => {
       excerpt: String
       coverImage: File @fileByRelativePath
     }
-  `
-  createTypes(typeDefs)
-}
+  `;
+  createTypes(typeDefs);
+};

@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import Navigation from './navigation';
 import { toKebabCase } from '../helpers';
 
-import style from '../styles/post.module.css';
+import '../styles/post.module.css';
 
 const Post = ({
   title,
@@ -25,31 +25,31 @@ const Post = ({
   const nextLabel = nextPost && nextPost.frontmatter.title;
 
   return (
-    <div className={style.post}>
-      <div className={style.postContent}>
-        <h1 className={style.title}>
+    <div className="post">
+      <div className="postContent">
+        <h1 className="title">
           {excerpt ? <Link to={path}>{title}</Link> : title}
         </h1>
 
-        <div className={style.meta}>
+        <div className="meta">
           {location ? (
-            <div className={style.tags}>
+            <div className="tags">
               <Link
                 to={`/place/${toKebabCase(location).toLowerCase()}/`}
                 key={toKebabCase(location)}
               >
-                <span className={style.tag}>{location}</span>
+                <span className="tag">{location}</span>
               </Link>
             </div>
           ) : null}
 
           {type ? (
-            <div className={style.tags}>
+            <div className="tags">
               <Link
                 to={`/type/${toKebabCase(type).toLowerCase()}/`}
                 key={toKebabCase(type)}
               >
-                <span className={style.tag}>{type}</span>
+                <span className="tag">{type}</span>
               </Link>
             </div>
           ) : null}
@@ -58,14 +58,14 @@ const Post = ({
         {excerpt ? (
           <>
             <p>{excerpt}</p>
-            <Link to={path} className={style.readMore}>
+            <Link to={path} className="readMore">
               Read more →
             </Link>
           </>
         ) : (
           <>
             <div
-              className={style.markdowncontent}
+              className="markdowncontent"
               dangerouslySetInnerHTML={{ __html: html }}
             />
             <Navigation

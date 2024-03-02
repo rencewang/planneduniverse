@@ -1,12 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import SEO from '../components/seo'
-import Layout from '../components/layout'
-import Postcard from '../components/postcard'
-import Navigation from '../components/navigation'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
+import SEO from '../components/seo';
+import Layout from '../components/layout';
+import Postcard from '../components/postcard';
+import Navigation from '../components/navigation';
 
-import '../styles/layout.css'
+import '../styles/layout.css';
 
 const Tags = ({
   data,
@@ -14,7 +14,7 @@ const Tags = ({
 }) => {
   const {
     allMarkdownRemark: { edges: posts },
-  } = data
+  } = data;
 
   return (
     <>
@@ -39,7 +39,7 @@ const Tags = ({
               location,
               type,
             },
-          } = node
+          } = node;
 
           return (
             <Postcard
@@ -54,7 +54,7 @@ const Tags = ({
               coverImage={coverImage}
               excerpt={excerpt || autoExcerpt}
             />
-          )
+          );
         })}
 
         <Navigation
@@ -65,8 +65,8 @@ const Tags = ({
         />
       </Layout>
     </>
-  )
-}
+  );
+};
 
 Tags.propTypes = {
   data: PropTypes.object.isRequired,
@@ -74,13 +74,13 @@ Tags.propTypes = {
     nextPagePath: PropTypes.string,
     previousPagePath: PropTypes.string,
   }),
-}
+};
 
 export const postsQuery = graphql`
-  query($limit: Int!, $skip: Int!, $tag: String!) {
+  query ($limit: Int!, $skip: Int!, $tag: String!) {
     allMarkdownRemark(
       filter: { frontmatter: { tags: { in: [$tag] } } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
       limit: $limit
       skip: $skip
     ) {
@@ -99,9 +99,7 @@ export const postsQuery = graphql`
             type
             coverImage {
               childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(layout: CONSTRAINED, width: 800)
               }
             }
           }
@@ -109,6 +107,6 @@ export const postsQuery = graphql`
       }
     }
   }
-`
+`;
 
-export default Tags
+export default Tags;
