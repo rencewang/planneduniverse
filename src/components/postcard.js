@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import GatsbyImage from 'gatsby-plugin-image';
 import { toKebabCase } from '../helpers';
 
-import '../styles/postcard.module.css';
+import '../styles/postcard.css';
 
 const Postcard = ({ title, path, coverImage, location, type, date }) => (
   <div className="post">

@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import Navigation from './navigation';
 import { toKebabCase } from '../helpers';
 
-import '../styles/post.module.css';
+import '../styles/post.css';
 
 const Post = ({
   title,

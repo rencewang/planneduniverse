@@ -101,9 +101,7 @@ export const postsQuery = graphql`
             type
             coverImage {
               childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(layout: CONSTRAINED, width: 800)
               }
             }
           }

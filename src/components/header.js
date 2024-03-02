@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
 import Menu from './menu';
-import '../styles/header.module.css';
+import '../styles/header.css';
 
 const Header = (props) => {
   const { logoText, defaultTheme } = props;

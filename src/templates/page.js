@@ -6,7 +6,7 @@ import SEO from '../components/seo';
 import Layout from '../components/layout';
 import Post from '../components/post';
 
-const BlogPostTemplate = ({ data, pageContext }) => {
+const PageTemplate = ({ data, pageContext }) => {
   const {
     frontmatter: {
       title,
@@ -46,9 +46,9 @@ const BlogPostTemplate = ({ data, pageContext }) => {
   );
 };
 
-export default BlogPostTemplate;
+export default PageTemplate;
 
-BlogPostTemplate.propTypes = {
+PageTemplate.propTypes = {
   data: PropTypes.object.isRequired,
   pageContext: PropTypes.shape({
     next: PropTypes.object,

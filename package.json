@@ -37,12 +37,5 @@
   "devDependencies": {
     "babel-preset-gatsby": "^3.13.1",
     "rambdax": "^11.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/panr/gatsby-starter-hello-friend"
-  },
-  "bugs": {
-    "url": "https://github.com/panr/gatsby-starter-hello-friend/issues"
   }
 }

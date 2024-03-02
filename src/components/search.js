@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import { Index } from 'elasticlunr';
 // import { Link } from 'gatsby';
 
-import '../styles/sidebar.module.css';
+import '../styles/sidebar.css';
 
 // Search component
 class Search extends Component {
