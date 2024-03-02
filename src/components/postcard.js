@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import GatsbyImage from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { toKebabCase } from '../helpers';
 
 import '../styles/postcard.css';
@@ -12,13 +12,11 @@ const Postcard = ({ title, path, coverImage, location, type, date }) => (
         <h1 className="title">
           <Link to={path}>{title}</Link>
         </h1>
+        <h2>{date}</h2>
 
-        {/* {coverImage && (
-          <GatsbyImage
-            image={coverImage.childImageSharp.gatsbyImageData}
-            className="coverImage"
-          />
-        )} */}
+        {coverImage && (
+          <GatsbyImage image={coverImage} className="coverImage" />
+        )}
 
         <div className="meta">
           {location ? (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import GatsbyImage from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 /*
  * This component is built using `gatsby-plugin-image` to automatically serve optimized
@@ -20,6 +20,7 @@ const Image = () => {
       }
     }
   `);
+
   return (
     <GatsbyImage
       image={data.placeholderImage.childImageSharp.gatsbyImageData}

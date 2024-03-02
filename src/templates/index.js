@@ -41,7 +41,7 @@ const Index = ({ data, pageContext: { nextPagePath, previousPagePath } }) => {
                 title={title}
                 date={date}
                 path={path}
-                coverImage={coverImage}
+                coverImage={coverImage.childImageSharp.gatsbyImageData}
                 tags={tags}
                 location={location}
                 type={type}
