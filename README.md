@@ -1,4 +1,3 @@
- # Planned Universe
+# Metadome
 
- a [blog](https://www.planneduniverse.com/) for collecting floor plans  
- using Gatsby
+a [blog](https://metadome.rence.la/) by Lawrence Wang using Gatsby

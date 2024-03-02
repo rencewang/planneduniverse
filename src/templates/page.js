@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 import Layout from '../components/layout';
 import Post from '../components/post';
 
@@ -27,7 +27,7 @@ const PageTemplate = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <SEO title={title} description={excerpt || autoExcerpt} />
+      <Seo title={title} description={excerpt || autoExcerpt} />
       <Post
         key={id}
         title={title}

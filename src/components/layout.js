@@ -1,12 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { useStaticQuery, graphql } from 'gatsby'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useStaticQuery, graphql } from 'gatsby';
 
-import Header from './header'
-import Footer from './footer'
-import Sidebar from './sidebar'
+import Header from './header';
+import Sidebar from './sidebar';
 
-import '../styles/layout.css'
+import '../styles/layout.css';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -24,27 +23,33 @@ const Layout = ({ children }) => {
         }
       }
     }
-  `)
-  const {
-    logoText,
-    defaultTheme,
-  } = data.site.siteMetadata
+  `);
+  const { logoText, defaultTheme } = data.site.siteMetadata;
 
   return (
     <div className="container">
-      <Header
-        logoText={logoText}
-        defaultTheme={defaultTheme}
-      />
+      <Header logoText={logoText} defaultTheme={defaultTheme} />
+
       <div className="content">{children}</div>
+
       <Sidebar />
-      <Footer />
+
+      <footer>
+        <div>
+          <span className="footerCopyrights">
+            © {new Date().getFullYear()} Planned Universe
+          </span>
+          <span className="footerCopyrights">
+            Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
+          </span>
+        </div>
+      </footer>
     </div>
-  )
-}
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

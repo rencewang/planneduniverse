@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 import Layout from '../components/layout';
 import Postcard from '../components/postcard';
 import Navigation from '../components/navigation';
@@ -18,7 +18,7 @@ const Locations = ({
 
   return (
     <>
-      <SEO />
+      <Seo />
       <Layout>
         <div className="infoBanner">
           Plans in: <span>{location}</span>
