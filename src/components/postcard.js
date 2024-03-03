@@ -19,27 +19,23 @@ const Postcard = ({ title, path, coverImage, location, type, date }) => (
         )}
 
         <div className="meta">
-          {location ? (
-            <div className="tags">
-              <Link
-                to={`/place/${toKebabCase(location).toLowerCase()}/`}
-                key={toKebabCase(location)}
-              >
-                <span className="tag">{location}</span>
-              </Link>
-            </div>
-          ) : null}
+          <div className="tags">
+            <Link
+              to={`/place/${toKebabCase(location).toLowerCase()}/`}
+              key={toKebabCase(location)}
+            >
+              <span className="tag">{location}</span>
+            </Link>
+          </div>
 
-          {type ? (
-            <div className="tags">
-              <Link
-                to={`/type/${toKebabCase(type).toLowerCase()}/`}
-                key={toKebabCase(type)}
-              >
-                <span className="tag">{type}</span>
-              </Link>
-            </div>
-          ) : null}
+          <div className="tags">
+            <Link
+              to={`/type/${toKebabCase(type).toLowerCase()}/`}
+              key={toKebabCase(type)}
+            >
+              <span className="tag">{type}</span>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

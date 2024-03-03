@@ -17,54 +17,51 @@ const Tags = ({
   } = data;
 
   return (
-    <>
-      <Seo />
-      <Layout>
-        <div className="category-title">
-          Posts with tag: <span>#{tag}</span>
-        </div>
+    <Layout>
+      <div className="category-title">
+        Posts with tag: <span>#{tag}</span>
+      </div>
 
-        {posts.map(({ node }) => {
-          const {
-            id,
-            excerpt: autoExcerpt,
-            frontmatter: {
-              title,
-              date,
-              path,
-              author,
-              coverImage,
-              excerpt,
-              tags,
-              location,
-              type,
-            },
-          } = node;
+      {posts.map(({ node }) => {
+        const {
+          id,
+          excerpt: autoExcerpt,
+          frontmatter: {
+            title,
+            date,
+            path,
+            author,
+            coverImage,
+            excerpt,
+            tags,
+            location,
+            type,
+          },
+        } = node;
 
-          return (
-            <Postcard
-              key={id}
-              title={title}
-              date={date}
-              path={path}
-              author={author}
-              tags={tags}
-              location={location}
-              type={type}
-              coverImage={coverImage}
-              excerpt={excerpt || autoExcerpt}
-            />
-          );
-        })}
+        return (
+          <Postcard
+            key={id}
+            title={title}
+            date={date}
+            path={path}
+            author={author}
+            tags={tags}
+            location={location}
+            type={type}
+            coverImage={coverImage}
+            excerpt={excerpt || autoExcerpt}
+          />
+        );
+      })}
 
-        <Navigation
-          previousPath={previousPagePath}
-          previousLabel="Newer posts"
-          nextPath={nextPagePath}
-          nextLabel="Older posts"
-        />
-      </Layout>
-    </>
+      <Navigation
+        previousPath={previousPagePath}
+        previousLabel="Newer posts"
+        nextPath={nextPagePath}
+        nextLabel="Older posts"
+      />
+    </Layout>
   );
 };
 
@@ -110,3 +107,5 @@ export const postsQuery = graphql`
 `;
 
 export default Tags;
+
+export const Head = () => <Seo />;

@@ -17,56 +17,53 @@ const Locations = ({
   } = data;
 
   return (
-    <>
-      <Seo />
-      <Layout>
-        <div className="category-title">
-          Plans in: <span>{location}</span>
-        </div>
+    <Layout>
+      <div className="category-title">
+        Plans in: <span>{location}</span>
+      </div>
 
-        <div className="index-container">
-          {posts.map(({ node }) => {
-            const {
-              id,
-              excerpt: autoExcerpt,
-              frontmatter: {
-                title,
-                date,
-                path,
-                author,
-                coverImage,
-                excerpt,
-                tags,
-                location,
-                type,
-              },
-            } = node;
+      <div className="index-container">
+        {posts.map(({ node }) => {
+          const {
+            id,
+            excerpt: autoExcerpt,
+            frontmatter: {
+              title,
+              date,
+              path,
+              author,
+              coverImage,
+              excerpt,
+              tags,
+              location,
+              type,
+            },
+          } = node;
 
-            return (
-              <Postcard
-                key={id}
-                title={title}
-                date={date}
-                path={path}
-                author={author}
-                tags={tags}
-                location={location}
-                type={type}
-                coverImage={coverImage}
-                excerpt={excerpt || autoExcerpt}
-              />
-            );
-          })}
+          return (
+            <Postcard
+              key={id}
+              title={title}
+              date={date}
+              path={path}
+              author={author}
+              tags={tags}
+              location={location}
+              type={type}
+              coverImage={coverImage}
+              excerpt={excerpt || autoExcerpt}
+            />
+          );
+        })}
 
-          <Navigation
-            previousPath={previousPagePath}
-            previousLabel="Newer posts"
-            nextPath={nextPagePath}
-            nextLabel="Older posts"
-          />
-        </div>
-      </Layout>
-    </>
+        <Navigation
+          previousPath={previousPagePath}
+          previousLabel="Newer posts"
+          nextPath={nextPagePath}
+          nextLabel="Older posts"
+        />
+      </div>
+    </Layout>
   );
 };
 
@@ -112,3 +109,5 @@ export const postsQuery = graphql`
 `;
 
 export default Locations;
+
+export const Head = () => <Seo />;

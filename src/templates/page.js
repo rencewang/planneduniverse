@@ -27,7 +27,6 @@ const PageTemplate = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <Seo title={title} description={excerpt || autoExcerpt} />
       <Post
         key={id}
         title={title}
@@ -80,3 +79,10 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export const Head = ({ data }) => (
+  <Seo
+    title={data.markdownRemark.frontmatter.title}
+    description={data.markdownRemark.frontmatter.excerpt}
+  />
+);

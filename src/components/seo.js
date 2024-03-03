@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-const Seo = ({ description, lang, meta, keywords, title }) => {
+const Seo = ({ description, lang, keywords, url, title }) => {
   const data = useStaticQuery(graphql`
     query DefaultSEOQuery {
       site {
@@ -15,71 +14,39 @@ const Seo = ({ description, lang, meta, keywords, title }) => {
       }
     }
   `);
+
   const {
-    title: siteTitle,
-    description: siteDescription,
+    title: defaultTitle,
+    description: defaultDescription,
+    url: defaultUrl,
     author,
   } = data.site.siteMetadata;
-  const metaTitle = title || siteTitle;
-  const metaDescription = description || siteDescription;
+
+  const seo = {
+    title: title || defaultTitle,
+    description: description || defaultDescription,
+    url: url || defaultUrl,
+    author: author,
+  };
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={metaTitle}
-      titleTemplate={title ? `${title} | ${siteTitle}` : siteTitle}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: metaTitle,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:title`,
-          content: metaTitle,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-        {
-          name: `twitter:creator`,
-          content: author,
-        },
-      ]
-        .concat(
-          keywords.length > 0
-            ? {
-                name: `keywords`,
-                content: keywords.join(`, `),
-              }
-            : []
-        )
-        .concat(meta)}
-    />
+    <>
+      <title>{seo.title}</title>
+      <meta name="description" content={seo.description} />
+      <meta name="twitter:title" content={seo.title} />
+      <meta name="twitter:url" content={seo.url} />
+      <meta name="twitter:creator" content={seo.author} />
+      <meta name="twitter:description" content={seo.description} />
+      <link
+        rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>👤</text></svg>"
+      />
+    </>
   );
 };
 
 Seo.defaultProps = {
   lang: `en`,
-  meta: [],
   keywords: [
     'floor plan',
     'blog',
@@ -91,13 +58,15 @@ Seo.defaultProps = {
     'new york',
     'airplanes',
   ],
+  url: 'https://metadome.rence.la',
+  title: 'Metadome',
 };
 
 Seo.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
-  meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
+  url: PropTypes.string,
   title: PropTypes.string,
 };
 

@@ -15,50 +15,47 @@ const Index = ({ data, pageContext: { nextPagePath, previousPagePath } }) => {
   } = data;
 
   return (
-    <>
-      <Seo />
-      <Layout>
-        <div className="index-container">
-          {posts.map(({ node }) => {
-            const {
-              id,
-              excerpt: autoExcerpt,
-              frontmatter: {
-                title,
-                date,
-                path,
-                coverImage,
-                excerpt,
-                tags,
-                location,
-                type,
-              },
-            } = node;
+    <Layout>
+      <div className="index-container">
+        {posts.map(({ node }) => {
+          const {
+            id,
+            excerpt: autoExcerpt,
+            frontmatter: {
+              title,
+              date,
+              path,
+              coverImage,
+              excerpt,
+              tags,
+              location,
+              type,
+            },
+          } = node;
 
-            return (
-              <Postcard
-                key={id}
-                title={title}
-                date={date}
-                path={path}
-                coverImage={coverImage.childImageSharp.gatsbyImageData}
-                tags={tags}
-                location={location}
-                type={type}
-                excerpt={excerpt || autoExcerpt}
-              />
-            );
-          })}
+          return (
+            <Postcard
+              key={id}
+              title={title}
+              date={date}
+              path={path}
+              coverImage={coverImage.childImageSharp.gatsbyImageData}
+              tags={tags}
+              location={location}
+              type={type}
+              excerpt={excerpt || autoExcerpt}
+            />
+          );
+        })}
 
-          <Navigation
-            previousPath={previousPagePath}
-            previousLabel="Newer posts"
-            nextPath={nextPagePath}
-            nextLabel="Older posts"
-          />
-        </div>
-      </Layout>
-    </>
+        <Navigation
+          previousPath={previousPagePath}
+          previousLabel="Newer posts"
+          nextPath={nextPagePath}
+          nextLabel="Older posts"
+        />
+      </div>
+    </Layout>
   );
 };
 
@@ -106,3 +103,5 @@ export const postsQuery = graphql`
 `;
 
 export default Index;
+
+export const Head = () => <Seo />;

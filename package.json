@@ -18,7 +18,6 @@
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-manifest": "^5.13.1",
     "gatsby-plugin-offline": "^6.13.1",
-    "gatsby-plugin-react-helmet": "^6.13.1",
     "gatsby-plugin-sass": "^6.13.1",
     "gatsby-plugin-sharp": "^5.13.1",
     "gatsby-remark-images": "^7.13.1",
@@ -29,13 +28,12 @@
     "jquery": "^3.7.1",
     "npm": "^10.2.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-helmet": "^6.1.0"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "babel-preset-gatsby": "^3.13.1",
+    "prismjs": "^1.29.0",
     "rambdax": "^11.0.0",
-    "sass": "^1.71.1",
-    "prismjs": "^1.29.0"
+    "sass": "^1.71.1"
   }
 }

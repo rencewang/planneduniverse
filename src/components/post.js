@@ -27,48 +27,33 @@ const Post = ({
     <div className="post">
       <div className="postContent">
         <h1 className="title">
-          {excerpt ? <Link to={path}>{title}</Link> : title}
+          <Link to={path}>{title}</Link>
         </h1>
 
         <div className="metadata">
-          {location ? (
-            <div className="tags">
-              <Link
-                to={`/place/${toKebabCase(location).toLowerCase()}/`}
-                key={toKebabCase(location)}
-              >
-                <span className="tag">{location}</span>
-              </Link>
-            </div>
-          ) : null}
+          <div className="tags">
+            <Link
+              to={`/place/${toKebabCase(location).toLowerCase()}/`}
+              key={toKebabCase(location)}
+            >
+              <span className="tag">{location}</span>
+            </Link>
+          </div>
 
-          {type ? (
-            <div className="tags">
-              <Link
-                to={`/type/${toKebabCase(type).toLowerCase()}/`}
-                key={toKebabCase(type)}
-              >
-                <span className="tag">{type}</span>
-              </Link>
-            </div>
-          ) : null}
+          <div className="tags">
+            <Link
+              to={`/type/${toKebabCase(type).toLowerCase()}/`}
+              key={toKebabCase(type)}
+            >
+              <span className="tag">{type}</span>
+            </Link>
+          </div>
         </div>
 
-        {excerpt ? (
-          <>
-            <p>{excerpt}</p>
-            <Link to={path} className="readMore">
-              Read more →
-            </Link>
-          </>
-        ) : (
-          <>
-            <div
-              className="markdowncontent"
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
-          </>
-        )}
+        <div
+          className="markdowncontent"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
       </div>
     </div>
   );
