@@ -1,13 +1,13 @@
 ---
-title: "240 Park Avenue South"
+title: '240 Park Avenue South'
 published: true
-path: "/240park"
-date: "2020-07-25"
-coverImage: "../images/240Park-Penthouse.jpg"
+path: '/240park'
+date: '2020-07-25'
+coverImage: '../images/240Park-Penthouse.jpg'
 excerpt: ''
-tags: ["New York", "Apartment"]
-location: "New York"
-type: "Apartment"
+tags: ['New York', 'Apartment']
+location: 'New York'
+type: 'Apartment'
 ---
 
 ![penthouse](../images/240Park-Penthouse.jpg)

@@ -5,7 +5,7 @@ import { toKebabCase } from '../helpers';
 
 import '../styles/postcard.css';
 
-const Postcard = ({ title, path, coverImage, location, type, date }) => (
+const Postcard = ({ title, path, coverImage, tags, location, type, date }) => (
   <div className="post">
     <div className="postContent">
       <div className="postcard">
@@ -18,23 +18,13 @@ const Postcard = ({ title, path, coverImage, location, type, date }) => (
           <GatsbyImage image={coverImage} className="coverImage" />
         )}
 
-        <div className="meta">
+        <div className="metadata">
           <div className="tags">
-            <Link
-              to={`/place/${toKebabCase(location).toLowerCase()}/`}
-              key={toKebabCase(location)}
-            >
-              <span className="tag">{location}</span>
-            </Link>
-          </div>
-
-          <div className="tags">
-            <Link
-              to={`/type/${toKebabCase(type).toLowerCase()}/`}
-              key={toKebabCase(type)}
-            >
-              <span className="tag">{type}</span>
-            </Link>
+            {tags.map((tag) => (
+              <Link to={`/tag/${toKebabCase(tag).toLowerCase()}/`} key={tag}>
+                <span className="tag">{tag}</span>
+              </Link>
+            ))}
           </div>
         </div>
       </div>

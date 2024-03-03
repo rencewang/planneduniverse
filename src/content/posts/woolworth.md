@@ -1,13 +1,13 @@
 ---
-title: "The Woolworth Tower"
+title: 'The Woolworth Tower'
 published: true
-path: "/woolworth"
-date: "2020-10-29"
-coverImage: "../images/woolworth-40A.jpg"
+path: '/woolworth'
+date: '2020-10-29'
+coverImage: '../images/woolworth-40A.jpg'
 excerpt: ''
-tags: ["New York", "Apartment"]
-location: "New York"
-type: "Apartment"
+tags: ['New York', 'Apartment']
+location: 'New York'
+type: 'Apartment'
 ---
 
 ![40A](../images/woolworth-40A.jpg)

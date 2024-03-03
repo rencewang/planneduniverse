@@ -13,7 +13,7 @@ const Post = ({
   excerpt,
   tags,
   html,
-  location,
+  category,
   type,
   previousPost,
   nextPost,
@@ -32,21 +32,11 @@ const Post = ({
 
         <div className="metadata">
           <div className="tags">
-            <Link
-              to={`/place/${toKebabCase(location).toLowerCase()}/`}
-              key={toKebabCase(location)}
-            >
-              <span className="tag">{location}</span>
-            </Link>
-          </div>
-
-          <div className="tags">
-            <Link
-              to={`/type/${toKebabCase(type).toLowerCase()}/`}
-              key={toKebabCase(type)}
-            >
-              <span className="tag">{type}</span>
-            </Link>
+            {tags.map((tag) => (
+              <Link to={`/tag/${toKebabCase(tag).toLowerCase()}/`} key={tag}>
+                <span className="tag">{tag}</span>
+              </Link>
+            ))}
           </div>
         </div>
 
@@ -67,7 +57,7 @@ Post.propTypes = {
   excerpt: PropTypes.string,
   html: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
-  location: PropTypes.string,
+  category: PropTypes.string,
   type: PropTypes.string,
   previousPost: PropTypes.object,
   nextPost: PropTypes.object,

@@ -51,7 +51,7 @@ main {
   flex: 1 0 auto;
   align-items: center;
   justify-content: center;
-  margin: 50px auto;
+  margin: auto;
   width: 100%;
   position: relative;
   overflow-x: hidden;
@@ -160,19 +160,18 @@ footer {
   */
 header {
   background: linear-gradient(
-    $lightHeaderBackground 60%,
+    $lightHeaderBackground 50%,
     rgba(255, 255, 255, 0)
   );
 
   display: flex;
-  align-items: center;
   justify-content: space-between;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px 0 30px 0;
+  height: 80px;
   z-index: 999;
 
   a {
@@ -181,11 +180,9 @@ header {
 
   .header-container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    margin: 0 auto;
+    margin: 5px auto 0 auto;
     width: 90%;
-    // max-width: 1600px;
     @media screen and (max-width: $mobileWidth) {
       width: 95%;
       max-width: 660px;

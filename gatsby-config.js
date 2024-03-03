@@ -3,10 +3,7 @@ module.exports = {
     title: `Planned Universe`,
     description: `Planned Universe: an initiative about plans of all dimensions, contexts, and worlds`,
     author: `@planneduniverse`,
-    logo: {
-      src: '',
-      alt: '',
-    },
+    logo: `src/content/images/hello-icon.png`,
     logoText: 'Metadome',
     postsPerPage: 5,
     mainMenu: [],

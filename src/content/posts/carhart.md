@@ -1,13 +1,13 @@
 ---
-title: "Carhart Mansion"
+title: 'Carhart Mansion'
 published: true
-path: "/carhart"
-date: "2020-07-23"
-coverImage: "../images/carhart-triplex-1.jpg"
+path: '/carhart'
+date: '2020-07-23'
+coverImage: '../images/carhart-triplex-1.jpg'
 excerpt: ''
-tags: ["New York", "Townhouse"]
-location: "New York"
-type: "Townhouse"
+tags: ['New York', 'Townhouse']
+location: 'New York'
+type: 'Townhouse'
 ---
 
 The Carhart Mansion is an Upper East Side development originally designed by architect Horace Trumbauer in 1916, and currently it is subdivided into four separate luxury condoniums, with one triplex, one duplex, one simplex, and one two-story penthouse.
@@ -20,7 +20,7 @@ The Carhart Mansion is an Upper East Side development originally designed by arc
 
 ![duplex](../images/carhart-duplex.webp)
 
-&#8593; plans of the duplex occupying the parlor floor of the mansion, which means the living room, gallery, dining room, and breakfast room all have shocking 18-foot ceilings. 
+&#8593; plans of the duplex occupying the parlor floor of the mansion, which means the living room, gallery, dining room, and breakfast room all have shocking 18-foot ceilings.
 
 ![simplex](../images/carhart-simplex.jpg)
 

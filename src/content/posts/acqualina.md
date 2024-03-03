@@ -1,13 +1,13 @@
 ---
-title: "The Mansions at Acqualina"
+title: 'The Mansions at Acqualina'
 published: true
-path: "/acqualina"
-date: "2020-07-26"
-coverImage: "../images/2-Palazzo_Del_Cielo.jpg"
+path: '/acqualina'
+date: '2020-07-26'
+coverImage: '../images/2-Palazzo_Del_Cielo.jpg'
 excerpt: ''
-tags: ["Miami"]
-location: "Miami"
-type: "Apartment"
+tags: ['Miami']
+location: 'Miami'
+type: 'Apartment'
 ---
 
 ![penthouse](../images/2-Palazzo_Del_Cielo.jpg)

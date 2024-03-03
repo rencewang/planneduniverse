@@ -1,13 +1,13 @@
 ---
-title: "K11 MUSEA Hong Kong"
+title: 'K11 MUSEA Hong Kong'
 published: true
-path: "/k11-HK"
-date: "2020-08-07"
-coverImage: "../images/MUSEA1.jpg"
+path: '/k11-HK'
+date: '2020-08-07'
+coverImage: '../images/MUSEA1.jpg'
 excerpt: ''
-tags: ["Hong Kong", "Retail"]
-location: "Hong Kong"
-type: "Retail"
+tags: ['Hong Kong', 'Retail']
+location: 'Hong Kong'
+type: 'Retail'
 ---
 
 K11 is the premium mall brand by the Hong Kong real estate conglomerate New World Development. Currently, the namesake mall exists in several prominent Chinese cities, including Shanghai, Guangzhou, Shenyang, and Wuhan. Most K11 locations pride themselves over pioneering the "art mall" formula, by combining traditional retail experience with immersive art exhibits, and in doing so attracting more of China's younger shoppers and growing middle class. K11 MUSEA sits at the top of the pyramid of other K11 malls, as it is situated at the heart of art and design district Victoria Dockside in Hong Kong with ambitions to become the world's finest cultural-retail destination.

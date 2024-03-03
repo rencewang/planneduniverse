@@ -19,7 +19,7 @@ const Tags = ({
   return (
     <Layout>
       <div className="category-title">
-        Posts with tag: <span>#{tag}</span>
+        Posts with tag: <span>{tag}</span>
       </div>
 
       {posts.map(({ node }) => {
@@ -49,7 +49,6 @@ const Tags = ({
             tags={tags}
             location={location}
             type={type}
-            coverImage={coverImage}
             excerpt={excerpt || autoExcerpt}
           />
         );

@@ -10,6 +10,7 @@ const Seo = ({ description, lang, keywords, url, title }) => {
           title
           description
           author
+          logo
         }
       }
     }
@@ -20,6 +21,7 @@ const Seo = ({ description, lang, keywords, url, title }) => {
     description: defaultDescription,
     url: defaultUrl,
     author,
+    logo,
   } = data.site.siteMetadata;
 
   const seo = {
@@ -27,6 +29,7 @@ const Seo = ({ description, lang, keywords, url, title }) => {
     description: description || defaultDescription,
     url: url || defaultUrl,
     author: author,
+    logo: logo,
   };
 
   return (
@@ -37,10 +40,7 @@ const Seo = ({ description, lang, keywords, url, title }) => {
       <meta name="twitter:url" content={seo.url} />
       <meta name="twitter:creator" content={seo.author} />
       <meta name="twitter:description" content={seo.description} />
-      <link
-        rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>👤</text></svg>"
-      />
+      <link rel="icon" href={seo.logo} />
     </>
   );
 };

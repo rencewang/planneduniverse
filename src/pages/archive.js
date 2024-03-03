@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 
 import Layout from '../components/layout';
+import Postcard from '../components/postcard';
 
 import '../styles/pages.scss';
 
@@ -24,6 +25,16 @@ const Archive = ({
             of {post.frontmatter.type}
           </div>
         </div>
+        // <Postcard
+        //   key={post.id}
+        //   title={post.frontmatter.title}
+        //   date={post.frontmatter.date}
+        //   path={post.frontmatter.path}
+        //   tags={post.frontmatter.tags}
+        //   location={post.frontmatter.location}
+        //   type={post.frontmatter.type}
+        //   excerpt={post.excerpt || post.autoExcerpt}
+        // />
       );
     });
 

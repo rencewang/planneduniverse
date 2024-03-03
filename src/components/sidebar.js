@@ -15,7 +15,7 @@ export default () => {
         }
         sort: { frontmatter: { date: DESC } }
       ) {
-        location: group(field: { frontmatter: { location: SELECT } }) {
+        tags: group(field: { frontmatter: { tags: SELECT } }) {
           fieldValue
           totalCount
         }
@@ -32,19 +32,21 @@ export default () => {
       {/* <Search searchIndex={data.siteSearchIndex.index} /> */}
       <div className="mobileflex">
         <div>
-          <h1>Location</h1>
+          <h1>Tags</h1>
           <ul>
-            {data.allMarkdownRemark.location.map((location) => (
-              <li key={location.fieldValue}>
-                <Link to={`/place/${kebabCase(location.fieldValue)}/`}>
-                  {location.fieldValue} ({location.totalCount})
+            {data.allMarkdownRemark.tags.map((tag) => (
+              <li key={tag.fieldValue}>
+                <Link to={`/tag/${kebabCase(tag.fieldValue)}`}>
+                  {tag.fieldValue} ({tag.totalCount})
                 </Link>
               </li>
             ))}
           </ul>
         </div>
 
-        <div>
+        {/* add part about archive/recent posts here */}
+
+        {/* <div>
           <h1>Category</h1>
           <ul>
             {data.allMarkdownRemark.type.map((type) => (
@@ -55,7 +57,7 @@ export default () => {
               </li>
             ))}
           </ul>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -1,13 +1,13 @@
 ---
-title: "The Adelicia"
+title: 'The Adelicia'
 published: true
-path: "/adelicia"
-date: "2020-07-29"
-coverImage: "../images/Adelicia1.jpg"
+path: '/adelicia'
+date: '2020-07-29'
+coverImage: '../images/Adelicia1.jpg'
 excerpt: ''
-tags: ["Nashville", "Apartment"]
-location: "Nashville"
-type: "Apartment"
+tags: ['Nashville', 'Apartment']
+location: 'Nashville'
+type: 'Apartment'
 ---
 
 ![penthouse1](../images/Adelicia1.jpg)

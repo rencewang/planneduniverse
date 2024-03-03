@@ -119,7 +119,7 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
         items: postsWithTag,
         component: tagsTemplate,
         itemsPerPage: siteMetadata.postsPerPage,
-        pathPrefix: `/tag/${toKebabCase(tag)}`,
+        pathPrefix: `/tag/${toKebabCase(tag).toLowerCase()}`,
         context: {
           tag,
         },
